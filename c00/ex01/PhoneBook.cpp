@@ -6,20 +6,24 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:46:14 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/25 22:48:54 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/07/27 22:40:47 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(int const num, std::string const name) : num(num), name(name) {
-	static int _id = 0;
+PhoneBook::PhoneBook(void) {
 	std::cout << "Constructor called" << std::endl;
-	this->id = ++_id;
-
-	return ;
 }
+
+// PhoneBook::PhoneBook(int const num, std::string const name) : num(num), name(name) {
+// 	static int _id = 0;
+// 	std::cout << "Constructor called" << std::endl;
+// 	this->id = ++_id;
+
+// 	return ;
+// }
 
 PhoneBook::~PhoneBook(void) {
 	std::cout << "Destructor called" << std::endl;
