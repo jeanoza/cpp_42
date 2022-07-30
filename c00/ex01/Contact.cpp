@@ -16,6 +16,7 @@
 Contact::Contact(void) {
 	std::cout << "Constructor called" << std::endl;
 	this->_index = Contact::_length;
+	this->isEmpty = true;
 	Contact::_length += 1;
 }
 /* Destructor */
@@ -28,9 +29,9 @@ Contact::~Contact(void) {
 int	Contact::getLength(void) {
 	return Contact::_length;
 }
-Contact	Contact::getByIndex(int index) {
-	return Contact::_list[index];
-}
+// Contact	Contact::getByIndex(int index) {
+// 	return Contact::_list[index];
+// }
 int			Contact::getIndex(void) const {
 	return this->_index;
 }
@@ -66,6 +67,45 @@ void	Contact::setPhoneNumber(std::string phoneNumber) {
 void	Contact::setDarkestSecret(std::string darkestSecret) {
 	this->_darkestSecret = darkestSecret;
 }
+void	Contact::add(int *index) {
+	std::string	entries[5] = {
+		"First name",
+		"Last name",
+		"Nick name",
+		"Phone number",
+		"Darkest secret",
+	};
+	std::string tmp;
+	for (int i = 0; i < 5; i++) {
+		std::cout << entries[i] << ": ";
+		getline(std::cin, tmp);
+		if (i == 0) this->setFirstName(tmp);
+		else if(i == 1) this->setLastName(tmp);
+		else if(i == 2) this->setNickName(tmp);
+		else if(i == 3) this->setPhoneNumber(tmp);
+		else if(i == 4) this->setDarkestSecret(tmp);
+	}
+	std::cout << "Registered" << std::endl << std::endl;
+	this->isEmpty = false;
+	*index = (*index + 1) % MAX_CONTACT;
+}
+
+void	Contact::show(void) {
+	if (this->isEmpty == false) {
+		std::cout << this->getIndex() << "|";
+		std::cout << this->getFirstName() << "|";
+		std::cout << this->getLastName() << "|";
+		std::cout << this->getNickName() << "|" << std::endl << std::endl;
+	}
+}
+
+void	Contact::showDetail(void) {
+	std::cout << "First name: "<< this->getFirstName() << std::endl;
+	std::cout << "Last name: "<< this->getLastName() << std::endl;
+	std::cout << "Nick name: "<< this->getNickName() << std::endl;
+	std::cout << "Phone number: "<< this->getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: "<< this->getDarkestSecret() << std::endl;
+	std::cout << "==================" << std::endl << std::endl;
+}
 
 int Contact::_length = 0;
-Contact	Contact::_list[MAX_CONTACT];

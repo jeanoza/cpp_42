@@ -17,12 +17,12 @@
 #  define MAX_CONTACT 8
 # endif
 
-#include <vector>
 #include <iostream>
+#include <string>
 
 class Contact {
 
-	static Contact _list[MAX_CONTACT];
+	// static Contact _list[MAX_CONTACT];
 	static int	_length;
 	int			_index;
 	std::string	_firstName;
@@ -30,14 +30,17 @@ class Contact {
 	std::string _nickName;
 	std::string _phoneNumber;
 	std::string _darkestSecret;
+	
 
 	public:
 		Contact(void); //constructor
 		~Contact(void); //destructor
 
+		bool		isEmpty;
+
 		/* Getters */
 		static int	getLength(void);
-		static Contact	getByIndex(int index);
+		// static Contact	getByIndex(int index);
 		int			getIndex(void) const;
 		std::string getFirstName(void) const;
 		std::string getLastName(void) const;
@@ -51,5 +54,10 @@ class Contact {
 		void		setNickName(std::string nickName);
 		void		setPhoneNumber(std::string phoneNumber);
 		void		setDarkestSecret(std::string darkestSecret);
+
+		/* Options */
+		void		add(int *index);
+		void		show(void);
+		void		showDetail(void);
 };
 #endif
