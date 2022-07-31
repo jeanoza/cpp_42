@@ -34,15 +34,15 @@
 
 class Contact {
 
-	// static Contact _list[MAX_CONTACT];
-	static int	_length;
-	int			_index;
-	std::string	_firstName;
-	std::string _lastName;
-	std::string _nickName;
-	std::string _phoneNumber;
-	std::string _darkestSecret;
-	
+	private:
+		// static Contact _list[MAX_CONTACT];
+		static int	_length;
+		int			_index;
+		std::string	_firstName;
+		std::string _lastName;
+		std::string _nickName;
+		std::string _phoneNumber;
+		std::string _darkestSecret;
 
 	public:
 		Contact(void); //constructor
