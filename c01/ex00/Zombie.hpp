@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 15:06:10 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/31 15:18:28 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/07/31 15:39:56 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ class Zombie {
 
 		void	announce(void);
 };
+
+Zombie *newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
