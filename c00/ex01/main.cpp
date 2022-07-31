@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:59:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/30 23:28:59 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/07/31 10:35:39 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,22 @@ static void search (Contact list[MAX_CONTACT]) {
 
 	for (int j = 0; j < MAX_CONTACT; ++j) list[j].show();
 
-	//TODO: maybe with while loop, if invalid index => ask encore.
-	std::cout << MAG << "\nChoose a index whose you want see the detail: " << DFT;
-	std::string option;
-	getline(std::cin, option);
+	/* loop until user put VALID INDEX */
+	while (42) {
+		std::cout << MAG << "\nChoose a index whose you want see the detail: " << DFT;
+		std::string option;
+		getline(std::cin, option);
 
-	if (isNumber(option)) {
-		int index = atoi(option.c_str());
-		if (index >= 0 && index < MAX_CONTACT && !list[index].isEmpty) list[index].showDetail();
-		else std::cout << RED <<"This index is not valid!\n" << DFT <<std::endl;
+		if (isNumber(option)) {
+			int index = atoi(option.c_str());
+			if (index >= 0 && index < MAX_CONTACT && !list[index].isEmpty) {
+				list[index].showDetail();
+				break ;
+			}
+			else std::cout << RED << option <<" is not valid index!" << DFT <<std::endl;
+		}
+		else std::cout << RED << option <<" is not valid index!" << DFT <<std::endl;
 	}
-	else std::cout << RED <<"This index is not valid!\n" << DFT <<std::endl;
 }
 int main(void) {
 	Contact		list[MAX_CONTACT];
