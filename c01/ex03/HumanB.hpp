@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:58 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/04 10:38:55 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 10:38:47 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,15 @@ class HumanB {
 
 	public:
 		/* constructor */
-		HumanB(void);
 		HumanB(std::string name);
 		/* destructor */
 		~HumanB(void); 
 
 		/* Setter */
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon &weapon);
 
 
-		void attack(void);
+		void attack(void) const;
 };
 
 #endif

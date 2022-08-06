@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:59 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/04 10:38:52 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 10:40:52 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(void) {
-	std::cout << "HumanB: constructor called" << std::endl;
-}
-HumanB::HumanB(std::string name) {
-	this->_name = name;
-	std::cout << "HumanB: constructor called" << std::endl;
+HumanB::HumanB(std::string name) : _name(name){
+	std::cout << CYN << "HumanB: constructor with name called"
+		<< DFT << std::endl;
 }
 
 HumanB::~HumanB(void) {
-	std::cout << "HumanB: Destructor called" << std::endl;
+	std::cout << RED << "HumanB: destructor called" 
+		<< DFT << std::endl;
 	return ;
 }
 
-void HumanB::attack(void) {
-	std::cout << this->_name << " attack with " << this->_weapon->getType() << std::endl;
+void HumanB::attack(void) const {
+	std::cout << this->_name << " attacks with their " 
+		<< this->_weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon) {
+void HumanB::setWeapon(Weapon & weapon) {
 	this->_weapon = &weapon;
 }

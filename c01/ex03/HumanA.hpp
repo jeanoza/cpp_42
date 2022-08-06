@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:42 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/05 13:37:54 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 10:46:45 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "Weapon.hpp"
 
+# define TEST "hello"
+
+
 class HumanA {
 	private:
 		std::string	_name;
@@ -22,12 +25,11 @@ class HumanA {
 
 	public:
 		/* constructor */
-		HumanA(void);
 		HumanA(std::string name, Weapon &weapon);
 		/* destructor */
 		~HumanA(void); 
 
-		void attack(void);
+		void attack(void) const;
 };
 
 #endif

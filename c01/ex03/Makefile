@@ -1,8 +1,10 @@
-NAME = violence
+NAME = weapon
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
+
+INC = Weapon.hpp HumanA.hpp HumanB.hpp 
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
@@ -10,7 +12,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INC)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
 .cpp.o:

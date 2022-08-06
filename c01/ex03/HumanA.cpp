@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:39 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/05 13:37:35 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 10:40:09 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(void) {
-	std::cout << "HumanA: constructor called" << std::endl;
-}
-HumanA::HumanA(std::string name, Weapon &weapon) {
-	this->_name = name;
-	this->_weapon = weapon;
-	std::cout << "HumanA: constructor with param called" << std::endl;
+HumanA::HumanA(std::string name, Weapon & weapon)
+	:_name(name), _weapon(weapon) {
+	std::cout << CYN << "HumanA: constructor with name and weapon called"
+		<< DFT << std::endl;
 }
 
 HumanA::~HumanA(void) {
-	std::cout << "HumanA: Destructor called" << std::endl;
+	std::cout << RED << "HumanA: destructor called"
+		<< DFT << std::endl;
 	return ;
 }
 
-void HumanA::attack(void) {
-	std::cout << this->_name << " attack with " << this->_weapon.getType() << std::endl;
+void HumanA::attack(void) const{
+	std::cout << this->_name << " attacks with their "
+		<< this->_weapon.getType() << std::endl;
 }

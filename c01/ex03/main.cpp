@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:06:23 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/04 10:27:21 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 10:44:20 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main()
 {
 	{
-		std::cout << "\n= = = = = = = = Human A = = = = = = = = =\n";
+		std::cout << "\n= = = = = = = = Human A scope = = = = = = = = =\n";
 		Weapon  club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
 		bob.attack();
@@ -25,7 +25,7 @@ int main()
 		std::cout << "\n= = = = = = = = = = = = = = = = = = = = =\n";
 	}
 	{
-		std::cout << "\n= = = = = = = = Human B = = = = = = = = =\n";
+		std::cout << "\n= = = = = = = = Human B scope = = = = = = = = =\n";
 		Weapon  club = Weapon("crude spiked club");
 		HumanB jim("Jim");
 		jim.setWeapon(club);
