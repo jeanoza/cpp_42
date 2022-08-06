@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:59:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/31 10:35:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 09:56:07 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int main(void) {
 		std::cout << std::endl;
 		if (option.compare("ADD") == 0) list[i].add(&i);
 		else if (option.compare("SEARCH") == 0) search(list);
-		else if (option.compare("EXIT") == 0) break ;
+		else if (option.compare("EXIT") == 0) break;
+		else std::cout << RED << "USAGE : [ADD] | [SEARCH] | [EXIT]\n" << DFT << std::endl;
 	}
 	std::cout << "Bye :)" << std::endl;
 	return (0);
