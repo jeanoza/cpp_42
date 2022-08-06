@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:06:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/04 10:29:21 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/05 13:09:41 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,14 @@ class Weapon {
 	public:
 		/* constructor */
 		Weapon(void);
-		Weapon(std::string type); 
+		Weapon(std::string const &type); 
 		/* destructor */
 		~Weapon(void);
 
 		/* Getter */
-		std::string & getTypeRef(void);
 		std::string const & getType(void) const;
 		/* Setter */
-		void	setType(std::string type);
+		void	setType(std::string const &type);
 };
 
 #endif

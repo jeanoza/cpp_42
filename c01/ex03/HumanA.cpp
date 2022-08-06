@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:39 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/04 10:41:06 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/05 13:37:35 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 HumanA::HumanA(void) {
 	std::cout << "HumanA: constructor called" << std::endl;
 }
-HumanA::HumanA(std::string name, Weapon weapon) {
+HumanA::HumanA(std::string name, Weapon &weapon) {
 	this->_name = name;
-	this->_weapon = &weapon;
+	this->_weapon = weapon;
 	std::cout << "HumanA: constructor with param called" << std::endl;
 }
 
@@ -27,5 +27,5 @@ HumanA::~HumanA(void) {
 }
 
 void HumanA::attack(void) {
-	std::cout << this->_name << " attack with " << this->_weapon->getType() << std::endl;
+	std::cout << this->_name << " attack with " << this->_weapon.getType() << std::endl;
 }
