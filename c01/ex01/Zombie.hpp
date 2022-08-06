@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 15:06:10 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/31 16:31:26 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 13:13:27 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #  define WHT "\033[0;37m"
 #  define DFT "\033[0m"
 # endif
+
 
 # include <iostream>
 

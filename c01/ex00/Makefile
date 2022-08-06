@@ -10,7 +10,7 @@ OBJ		= $(SRC:.cpp=.o)
 
 all		: $(NAME)
 
-$(NAME)	: $(OBJ)
+$(NAME)	: $(OBJ) Zombie.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
 .cpp.o:

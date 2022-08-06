@@ -7,11 +7,11 @@ CFLAGS = -Wall -Wextra -Werror
 SRC =	Contact.cpp \
 		main.cpp\
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o) 
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Contact.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
 .cpp.o:

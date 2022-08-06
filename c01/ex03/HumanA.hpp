@@ -6,7 +6,7 @@
 /*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:07:42 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/06 10:46:45 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/06 10:54:19 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define HUMAN_A_HPP
 
 # include "Weapon.hpp"
-
-# define TEST "hello"
-
 
 class HumanA {
 	private:
