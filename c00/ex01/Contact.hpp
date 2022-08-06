@@ -10,27 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# ifndef MAX_CONTACT
-#  define MAX_CONTACT 8
-# endif
-
-# ifndef COLOR
-#  define RED "\033[0;31m"
-#  define GRN "\033[0;32m"
-#  define YEL "\033[0;33m"
-#  define BLU "\033[0;34m"
-#  define MAG "\033[0;35m" //purple
-#  define CYN "\033[0;36m" //emerald
-#  define WHT "\033[0;37m"
-#  define DFT "\033[0m"
-# endif
-
-#include <iostream>
-#include <string>
-
+# include "PhoneBook.hpp"
 
 class Contact {
 

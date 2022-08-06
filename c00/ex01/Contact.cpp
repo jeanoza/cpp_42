@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 /* Constructor */
 Contact::Contact(void) {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Contact: constructor called" << std::endl;
 	this->_index = Contact::_length;
 	this->isEmpty = true;
 	Contact::_length += 1;
 }
 /* Destructor */
 Contact::~Contact(void) {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Contact: destructor called" << std::endl;
 	return ;
 }
 

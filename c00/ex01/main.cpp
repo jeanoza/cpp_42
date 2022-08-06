@@ -3,54 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:59:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/06 09:56:07 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/06 21:41:53 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-bool isNumber(const std::string s)
-{
-    for (int i = 0; s[i]; ++i) {
-		char ch = s[i];
-        if (std::isdigit(ch) == 0)
-            return false;
-    }
-    return true;
-}
-
-static void search (Contact list[MAX_CONTACT]) {
-	if (list[0].isEmpty) {
-		std::cout << RED << "Contact is empty!\n" << DFT <<std::endl;
-		return ;
-	} 
-	std::cout << " index | first name | last name  |  nickname   \n"
-				<< "- - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
-
-	for (int j = 0; j < MAX_CONTACT; ++j) list[j].show();
-
-	/* loop until user put VALID INDEX */
-	while (42) {
-		std::cout << MAG << "\nChoose a index whose you want see the detail: " << DFT;
-		std::string option;
-		getline(std::cin, option);
-
-		if (isNumber(option)) {
-			int index = atoi(option.c_str());
-			if (index >= 0 && index < MAX_CONTACT && !list[index].isEmpty) {
-				list[index].showDetail();
-				break ;
-			}
-			else std::cout << RED << option <<" is not valid index!" << DFT <<std::endl;
-		}
-		else std::cout << RED << option <<" is not valid index!" << DFT <<std::endl;
-	}
-}
 int main(void) {
-	Contact		list[MAX_CONTACT];
+	PhoneBook	phonebook;
 
 	std::cout << BLU
 			<< "\n- - - - - - - - - - - - - - - - - - - - - - - -\n"
@@ -68,8 +31,10 @@ int main(void) {
 		std::cout << GRN <<"\nOption: " << DFT;
 		getline(std::cin, option);
 		std::cout << std::endl;
-		if (option.compare("ADD") == 0) list[i].add(&i);
-		else if (option.compare("SEARCH") == 0) search(list);
+		if (std::cin.eof())
+			break ;
+		if (option.compare("ADD") == 0) phonebook.getList()[i].add(&i);
+		else if (option.compare("SEARCH") == 0) phonebook.search();
 		else if (option.compare("EXIT") == 0) break;
 		else std::cout << RED << "USAGE : [ADD] | [SEARCH] | [EXIT]\n" << DFT << std::endl;
 	}
