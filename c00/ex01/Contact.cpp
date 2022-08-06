@@ -26,12 +26,6 @@ Contact::~Contact(void) {
 }
 
 /* Getters */
-int	Contact::getLength(void) {
-	return Contact::_length;
-}
-// Contact	Contact::getByIndex(int index) {
-// 	return Contact::_list[index];
-// }
 int			Contact::getIndex(void) const {
 	return this->_index;
 }

@@ -6,20 +6,24 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:59:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/06 21:41:53 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/06 21:50:59 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-int main(void) {
-	PhoneBook	phonebook;
-
+void	printTitle(void) {
 	std::cout << BLU
 			<< "\n- - - - - - - - - - - - - - - - - - - - - - - -\n"
 			<< "|             Welcome 42 Contact!             |\n"
 			<< "- - - - - - - - - - - - - - - - - - - - - - - -"
 			<< DFT <<std::endl;
+}
+
+int main(void) {
+	PhoneBook	phonebook;
+
+	printTitle();
 	/*
 	 * DO NOT USE getline and cin >> at the same time in program
 	 * It will waste buffer and program won't work as I want

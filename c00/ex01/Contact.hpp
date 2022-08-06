@@ -18,7 +18,6 @@
 class Contact {
 
 	private:
-		// static Contact _list[MAX_CONTACT];
 		static int	_length;
 		int			_index;
 		std::string	_firstName;
@@ -34,8 +33,6 @@ class Contact {
 		bool		isEmpty;
 
 		/* Getters */
-		static int	getLength(void);
-		// static Contact	getByIndex(int index);
 		int			getIndex(void) const;
 		std::string getFirstName(void) const;
 		std::string getLastName(void) const;
