@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:15:07 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/06 21:53:24 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/07 09:44:13 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class PhoneBook {
 
 	public:
 		PhoneBook(void); //constructor
-		virtual ~PhoneBook(void); //destructor
+		~PhoneBook(void); //destructor
 
 		//Getter
 		Contact	*getList(void);
