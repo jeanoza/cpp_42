@@ -6,18 +6,14 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:39:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/08 14:14:27 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/08 15:12:33 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 /* static zone */
-Harl::func		Harl::funcs[FUNC_NUM] = {
-		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error
-	};
 std::string Harl::func_names[FUNC_NUM] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
 
 /* constructor */
 Harl::Harl(void) {
@@ -41,18 +37,35 @@ void Harl::warning(void) {
 void Harl::error(void) {
 	std::cout << RED << "[error]error is error...\n" << DFT << std::endl;
 }
+void Harl::findCommand(unsigned int index, std::string level) {
+	switch (index)
+	{
+	case 0:
+		this->debug();
+		break;
+	case 1:
+		this->info();
+		break;
+	case 2:
+		this->warning();
+		break;
+	case 3:
+		this->error();
+		break;
+	default:
+		std::cout << RED << "\n\"" << level << "\""
+			<< " is not a command in the entries!\n" 
+			<< CYN << "usage: ./harlFilter [DEBUG | INFO | WARNING | ERROR]\n" 
+			<< DFT << std::endl;
+		break;
+	}
+}
 
 /* public funcs */
 void Harl::complain(std::string level) {
-	for (int i = 0; i < FUNC_NUM; ++i) {
-		if (level == Harl::func_names[i]) {
-			func current_func = funcs[i];
-			(this->*current_func)();
-			return ;
-		}
+	int i;
+	for (i = 0; i < FUNC_NUM; ++i) {
+		if (level == Harl::func_names[i]) break ;
 	}
-	std::cout << RED << "\"" << level << "\""
-		<< " is not a command in the command entries!\n" 
-		<< "Commands : [DEBUG | INFO | WARNING | ERROR]\n" 
-		<< DFT << std::endl;
+	findCommand(i, level);
 }

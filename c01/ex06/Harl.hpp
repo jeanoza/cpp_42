@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 12:23:21 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/08 13:51:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/08 15:10:30 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@
 
 class Harl {
 	private:
-		typedef	void (Harl::*func)(void);
-		static	func funcs[FUNC_NUM];
 		static	std::string func_names[FUNC_NUM];
 		void	debug(void);
 		void	info(void);
 		void	warning(void);
 		void	error(void);
+		void	findCommand(unsigned int index, std::string level);
 
 	public:
 		Harl(void);
