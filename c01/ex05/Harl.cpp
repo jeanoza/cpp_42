@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:39:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/08 14:12:08 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/08 14:14:27 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void Harl::complain(std::string level) {
 		}
 	}
 	std::cout << RED << "\"" << level << "\""
-		<< " is a command in the command entries!\n" 
+		<< " is not a command in the command entries!\n" 
 		<< "Commands : [DEBUG | INFO | WARNING | ERROR]\n" 
 		<< DFT << std::endl;
 }
