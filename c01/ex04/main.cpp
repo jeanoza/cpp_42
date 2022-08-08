@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef COLOR
+#  define RED "\033[0;31m"
+#  define DFT "\033[0m"
+# endif
+
 #include <iostream>
 #include <fstream>
 
@@ -28,9 +33,13 @@ void replaceAll(std::ifstream &ifs, std::ofstream &ofs, std::string src, std::st
         ofs << data;
         if (!ifs.eof()) ofs << std::endl;
     }
-
     ifs.close();
     ofs.close();
+}
+
+int printError (char const *msg) {
+    std::cout << RED << msg << DFT << std::endl;
+    return (-42);
 }
 
 int main(int ac, char *av[]) {
@@ -39,23 +48,16 @@ int main(int ac, char *av[]) {
 
         std::string     filename(av[1]);
         std::ifstream   ifs(filename);
-        if (ifs.fail()) {
-            std::cout << "Error: fail to read file!" << std::endl;
-            return (-42);
-        }
+        if (ifs.fail())  return printError("Error: fail to read file!");
         std::ofstream   ofs(filename + ".replace");
-        if (ofs.fail()) {
-            std::cout << "Error: fail to create file!" << std::endl;
-            return (-42);
-        }
+        if (ofs.fail())  return printError("Error: fail to create file!");
         std::string data;
         std::string src(av[2]);
         std::string dst(av[3]);
         replaceAll(ifs, ofs, src, dst);
 
-    } else std::cout << "USAGE: ./replace <filename> <word_to_replace> <replaced_word>" << std::endl;
-
+    } else return printError("USAGE: ./replace <filename> <word_to_replace> <replaced_word>");
+    
     return (0);
 }
-
             
