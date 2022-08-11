@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/08 18:41:20 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/09 08:41:17 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ Fixed::Fixed(double raw) : _raw(raw) {
 	std::cout << "Fixed: [double] constructor called" << std::endl;
 }
 //FIXME: here
-Fixed::Fixed(Fixed & const i) {
-	std::cout << "Fixed: [Fixed] constructor called" << std::endl;
-}
+// Fixed::Fixed(Fixed & const i) {
+// 	std::cout << "Fixed: [Fixed] constructor called" << std::endl;
+// }
 
 /* destructor */
 Fixed::~Fixed(void) {
@@ -47,6 +47,11 @@ Fixed::~Fixed(void) {
 
 //FIXME:here
 /* operator */
+Fixed & Fixed::operator=(Fixed const &inst) {
+	std::cout << "Fixed: Assingation operator called from " << this->_raw;
+	this->_raw = inst.getRawBits();
+	return (*this);
+}
 
 /* getter */
 int		Fixed::getRawBits(void) const{
