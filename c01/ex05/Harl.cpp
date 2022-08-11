@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:39:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/08 15:11:18 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/11 10:57:54 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 /* static zone */
+/* function ptr array */
 Harl::func		Harl::funcs[FUNC_NUM] = {
 		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error
 	};
+/* function name array */
 std::string Harl::func_names[FUNC_NUM] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 

@@ -23,6 +23,7 @@ void replaceAll(std::ifstream &ifs, std::ofstream &ofs, std::string src, std::st
 
     while (getline(ifs, data))
     {
+        /* pos = (if match src in data) ? idx : string::npos */
         size_t pos = data.find(src);
 
         while (pos != std::string::npos) {

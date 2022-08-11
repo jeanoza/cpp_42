@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 15:05:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/07/31 15:42:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/11 10:30:13 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void) {
 	foo->announce();
 	delete foo;
 
-	/* Create zombie and destroy it at the inside */
+	/* Create zombie, announce and destroy it at the inside */
 	randomChump("Random");
 	return (0);
 }
