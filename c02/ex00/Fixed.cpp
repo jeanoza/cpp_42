@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/09 08:41:17 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/11 13:58:11 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ Fixed::Fixed(double raw) : _raw(raw) {
 	std::cout << "Fixed: [double] constructor called" << std::endl;
 }
 //FIXME: here
-// Fixed::Fixed(Fixed & const i) {
-// 	std::cout << "Fixed: [Fixed] constructor called" << std::endl;
-// }
+Fixed::Fixed(Fixed const & i) {
+	std::cout << "Fixed: [Fixed] constructor called" << std::endl;
+}
 
 /* destructor */
 Fixed::~Fixed(void) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/09 08:41:13 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/11 13:58:21 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Fixed {
 		Fixed(long raw);
 		Fixed(float raw);
 		Fixed(double raw);
-		// Fixed(Fixed & i);
+		Fixed(Fixed const & i);
 
 		/* destructor */
 		~Fixed(void);
