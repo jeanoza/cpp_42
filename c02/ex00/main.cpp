@@ -3,18 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:41:26 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/09 08:45:07 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/12 13:35:56 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main(void) {
-	Fixed instance1(2);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	// std::cout << a.getRawBits() << std::endl;
+	// std::cout << b.getRawBits() << std::endl;
+	// std::cout << c.getRawBits() << std::endl;
 
-	Fixed instance2(instance1);
-	std::cout << instance2.getRawBits() << std::endl;
+	/* thanks to operator overload, */
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+
+	/* test to verify if int const Fixed::_bit is always 8 */
+	std::cout << Fixed::getBit() << std::endl;
+	return 0;
 }

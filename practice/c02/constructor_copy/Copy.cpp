@@ -6,7 +6,7 @@
 /*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:53:47 by kychoi            #+#    #+#             */
-/*   Updated: 2022/08/11 15:47:27 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/12 12:51:14 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 Copy::Copy(void) {
     std::cout << "Default constructor called\n";
+    return ;
 }
 
 Copy::Copy(int num) : _num(num) {
     std::cout << "Parametric constructor called : " << this->_num << std::endl;
+    return ;
 }
 
 Copy::Copy(Copy const & src) {
     std::cout << "Copy constructor called\n";
     *this = src;
+    return ;
 }
 
 Copy::~Copy(void) {
     std::cout << "Default destructor called: " << this->_num << std::endl;
+    return ;
 }
 
 Copy & Copy::operator=(Copy const & rhs) {
