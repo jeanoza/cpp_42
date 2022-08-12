@@ -6,7 +6,7 @@
 /*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:54:08 by kychoi            #+#    #+#             */
-/*   Updated: 2022/08/11 14:45:14 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/11 15:35:15 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ class Copy {
 
         Copy & operator=(Copy const & rhs);
 };
+
+std::ostream & operator<<(std::ostream & o, Copy const & rhs);
+
 #endif
