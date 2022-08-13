@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/12 14:09:02 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/13 17:33:28 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # endif
 
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 	private:
@@ -35,6 +36,7 @@ class Fixed {
 		/* constructor */
 		Fixed(void);
 		Fixed(int const raw);
+		Fixed(float const raw);
 		Fixed(Fixed const & i);
 
 		/* destructor */
@@ -49,6 +51,11 @@ class Fixed {
 
 		/* setter */
 		void	setRawBits(int const raw);
+
+		/* others */
+		float	toFloat(void) const;
+		int		toInt(void) const;
+
 };
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
 #endif

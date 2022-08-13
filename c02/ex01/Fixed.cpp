@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/12 13:44:52 by kychoi           ###   ########.fr       */
+/*   Updated: 2022/08/13 17:46:14 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ Fixed::Fixed(void) : _raw(0) {
 	return ;
 }
 Fixed::Fixed(int const raw) : _raw(raw) {
-	std::cout << BLU << "Fixed: Parametric constructor called" << DFT << std::endl;
+	std::cout << BLU << "Fixed: Parametic constructor called" << BLU << "(int)" <<  DFT << std::endl;
+	// this->_raw = raw;
+	// this->_raw = this->_raw << Fixed::_bit;
+	return ;
+}
+Fixed::Fixed(float const raw) {
+	std::cout << BLU << "Fixed: Parametric constructor called" << YEL << "(float)" <<  DFT << std::endl;
+	this->_raw = (int)raw;
 	return ;
 }
 Fixed::Fixed(Fixed const & rhs) {
@@ -52,6 +59,14 @@ int		Fixed::getBit(void){
 /* setter */
 void	Fixed::setRawBits(int const raw) {
 	this->_raw = raw;
+}
+
+/* other functions */
+float	Fixed::toFloat(void) const {
+	return this->_raw << Fixed::_bit;
+}
+int		Fixed::toInt(void) const {
+	return this->_raw >> Fixed::_bit;
 }
 
 /* no member zone */
