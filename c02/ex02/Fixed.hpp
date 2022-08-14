@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 15:41:23 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 18:12:52 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,36 @@ class Fixed {
 		/* explicit => to prevent automatical casting at constructor */
 		explicit Fixed(int const raw);
 		explicit Fixed(float const raw);
-		Fixed(Fixed const & inst);
+		Fixed(Fixed const &inst);
 
 		/* destructor */
 		~Fixed(void);
 
 		/* operator assignation */
-		Fixed 	& operator=(Fixed const & rhs);
-		Fixed	& operator<(Fixed const & rhs);
+		Fixed	&operator=(Fixed const &rhs);
+		/* operator comparison */
+		bool	operator>(Fixed const &rhs) const;
+		bool	operator<(Fixed const &rhs) const;
+		bool	operator>=(Fixed const &rhs) const;
+		bool	operator<=(Fixed const &rhs) const;
+		bool	operator==(Fixed const &rhs) const;
+		bool	operator!=(Fixed const &rhs) const;
+		/* operator arithmetic */
+		Fixed	operator+(Fixed const &rhs);
+		Fixed	operator-(Fixed const &rhs);
+		Fixed	operator*(Fixed const &rhs);
+		Fixed	operator/(Fixed const &rhs);
+		/* operator increament/decreament - prefix/postfix */
+		Fixed	&operator++(void);
+		Fixed	&operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		/* static functions : min/max */
+		static Fixed	&min(Fixed &first, Fixed &second);
+		static Fixed const &min(Fixed const &first, Fixed const &second);
+		static Fixed	&max(Fixed &first, Fixed &second);
+		static Fixed const &max(Fixed const &first, Fixed const &second);
 
 		/* getter */
 		int		getRawBits(void) const;
@@ -57,6 +79,9 @@ class Fixed {
 		/* others */
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+
+		
 
 };
 

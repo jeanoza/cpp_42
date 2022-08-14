@@ -2,7 +2,7 @@ NAME = fixed
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 INC = Fixed.hpp
 
