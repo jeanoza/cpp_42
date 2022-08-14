@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/12 14:26:25 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 12:57:22 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,23 @@
 class Fixed {
 	private:
 		int				_raw;
-		static int const _bit;
+		static int const _bit = 8;
 
 	public:
 		/* constructor */
 		Fixed(void);
-		Fixed(int const raw);
-		Fixed(Fixed const & i);
+		Fixed(Fixed const & inst);
 
 		/* destructor */
 		~Fixed(void);
 
-		/* operator */
+		/* assignation */
 		Fixed 	& operator=(Fixed const & inst);
 
 		/* getter */
 		int		getRawBits(void) const;
-		static int	getBit(void);
 
 		/* setter */
 		void	setRawBits(int const raw);
 };
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
 #endif

@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/13 17:33:28 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 13:10:05 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,28 @@
 # include <iostream>
 # include <cmath>
 
+
 class Fixed {
 	private:
 		int				_raw;
-		static int const _bit;
+		static int const _bit = 8;
 
 	public:
 		/* constructor */
 		Fixed(void);
-		Fixed(int const raw);
-		Fixed(float const raw);
+		/* explicit => to prevent automatical casting at constructor */
+		explicit Fixed(int const raw);
+		explicit Fixed(float const raw);
 		Fixed(Fixed const & i);
 
 		/* destructor */
 		~Fixed(void);
 
-		/* operator */
+		/* operator assignation */
 		Fixed 	& operator=(Fixed const & inst);
 
 		/* getter */
 		int		getRawBits(void) const;
-		static int	getBit(void);
 
 		/* setter */
 		void	setRawBits(int const raw);
@@ -57,5 +58,8 @@ class Fixed {
 		int		toInt(void) const;
 
 };
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
+
+/* ostream overloading */
+std::ostream & operator<<(std::ostream & o, Fixed const & inst);
+
 #endif
