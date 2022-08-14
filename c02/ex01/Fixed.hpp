@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 13:10:05 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 15:38:46 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ class Fixed {
 		/* explicit => to prevent automatical casting at constructor */
 		explicit Fixed(int const raw);
 		explicit Fixed(float const raw);
-		Fixed(Fixed const & i);
+		Fixed(Fixed const & inst);
 
 		/* destructor */
 		~Fixed(void);
 
 		/* operator assignation */
-		Fixed 	& operator=(Fixed const & inst);
+		Fixed 	& operator=(Fixed const & rhs);
 
 		/* getter */
 		int		getRawBits(void) const;
@@ -60,6 +60,6 @@ class Fixed {
 };
 
 /* ostream overloading */
-std::ostream & operator<<(std::ostream & o, Fixed const & inst);
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
 
 #endif

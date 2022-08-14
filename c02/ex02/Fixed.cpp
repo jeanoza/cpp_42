@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 15:42:08 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 15:42:01 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed(void) : _raw(0) {
 }
 Fixed::Fixed(int const raw) : _raw(raw << Fixed::_bit) {
 	std::cout << "Fixed: Parametic constructor called" << BLU << "(int)" <<  DFT << std::endl;
-	// std::cout << RED << this->_raw << std::endl;
+	std::cout << RED << this->_raw << std::endl;
 	return ;
 }
 
@@ -33,7 +33,7 @@ Fixed::Fixed(int const raw) : _raw(raw << Fixed::_bit) {
 Fixed::Fixed(float const raw)
 	: _raw(static_cast<int> (roundf(raw * (1 << Fixed::_bit)))) {
 	std::cout << "Fixed: Parametric constructor called" << YEL << "(float)" <<  DFT << std::endl;
-	// std::cout <<  RED << this->_raw << std::endl;
+	std::cout <<  RED << this->_raw << std::endl;
 	return ;
 }
 Fixed::Fixed(Fixed const & inst) {
@@ -74,8 +74,8 @@ int		Fixed::toInt(void) const {
 }
 
 /* ostream overloading */
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs) {
-	o << rhs.toFloat();
+std::ostream & operator<<(std::ostream & o, Fixed const & inst) {
+	o << inst.toFloat();
 	return o;
 }
 

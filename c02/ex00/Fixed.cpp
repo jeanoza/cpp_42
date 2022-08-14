@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 12:57:35 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 15:38:38 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ Fixed::~Fixed(void) {
 }
 
 /* operator assignation */
-Fixed & Fixed::operator=(Fixed const & inst) {
+Fixed & Fixed::operator=(Fixed const & rhs) {
 	std::cout << "Fixed: Copy assingation operator called" << std::endl;
-	if (this != &inst) this->_raw = inst.getRawBits();
+	if (this != &rhs) this->_raw = rhs.getRawBits();
 	return (*this);
 }
 
