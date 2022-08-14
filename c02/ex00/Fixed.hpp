@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 15:38:12 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 18:38:58 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ class Fixed {
 	public:
 		/* constructor */
 		Fixed(void);
-		Fixed(Fixed const & inst);
+		Fixed(Fixed const &inst);
 
 		/* destructor */
 		~Fixed(void);
 
 		/* assignation */
-		Fixed 	& operator=(Fixed const & rhs);
+		Fixed 	&operator=(Fixed const &rhs);
 
 		/* getter */
 		int		getRawBits(void) const;

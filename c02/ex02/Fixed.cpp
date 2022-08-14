@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 18:11:50 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 18:37:05 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ Fixed &Fixed::min(Fixed &first, Fixed &second) {
 	if (first < second) return first;
 	return second;
 }
-Fixed const &Fixed::min(Fixed const & first, Fixed const & second) {
+Fixed const &Fixed::min(Fixed const &first, Fixed const &second) {
 	if (first < second) return first;
 	return second;
 }

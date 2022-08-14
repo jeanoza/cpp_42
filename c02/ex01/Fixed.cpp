@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 15:42:08 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 18:39:16 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Fixed::Fixed(void) : _raw(0) {
 }
 Fixed::Fixed(int const raw) : _raw(raw << Fixed::_bit) {
 	std::cout << "Fixed: Parametic constructor called" << BLU << "(int)" <<  DFT << std::endl;
-	// std::cout << RED << this->_raw << std::endl;
 	return ;
 }
 
@@ -33,10 +32,9 @@ Fixed::Fixed(int const raw) : _raw(raw << Fixed::_bit) {
 Fixed::Fixed(float const raw)
 	: _raw(static_cast<int> (roundf(raw * (1 << Fixed::_bit)))) {
 	std::cout << "Fixed: Parametric constructor called" << YEL << "(float)" <<  DFT << std::endl;
-	// std::cout <<  RED << this->_raw << std::endl;
 	return ;
 }
-Fixed::Fixed(Fixed const & inst) {
+Fixed::Fixed(Fixed const &inst) {
 	std::cout << "Fixed: Copy constructor called" << std::endl;
 	*this = inst;
 	return ;
@@ -48,9 +46,9 @@ Fixed::~Fixed(void) {
 }
 
 /* operator */
-Fixed & Fixed::operator=(Fixed const & rhs) {
+Fixed & Fixed::operator=(Fixed const &rhs) {
 	std::cout << CYN << "Fixed: Copy assingation operator called" << DFT << std::endl;
-	if (this != &rhs) this->_raw = rhs.getRawBits();
+	if (this != &rhs) this->_raw = rhs._raw;
 	return (*this);
 }
 
@@ -74,7 +72,7 @@ int		Fixed::toInt(void) const {
 }
 
 /* ostream overloading */
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs) {
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs) {
 	o << rhs.toFloat();
 	return o;
 }

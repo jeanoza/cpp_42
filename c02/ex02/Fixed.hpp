@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 18:12:52 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/14 18:35:09 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ class Fixed {
 		Fixed	operator--(int);
 
 		/* static functions : min/max */
-		static Fixed	&min(Fixed &first, Fixed &second);
-		static Fixed const &min(Fixed const &first, Fixed const &second);
-		static Fixed	&max(Fixed &first, Fixed &second);
-		static Fixed const &max(Fixed const &first, Fixed const &second);
+		static Fixed		&min(Fixed &first, Fixed &second);
+		static Fixed const	&min(Fixed const &first, Fixed const &second);
+		static Fixed		&max(Fixed &first, Fixed &second);
+		static Fixed const	&max(Fixed const &first, Fixed const &second);
 
 		/* getter */
 		int		getRawBits(void) const;
