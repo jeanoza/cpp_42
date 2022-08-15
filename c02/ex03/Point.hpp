@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:24:18 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/15 13:04:09 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:32:39 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Point {
 	public:
 		/* constructor */
 		Point(void);
-		Point(Fixed const &x, Fixed const &y);
+		Point(float const x, float const y);
 		Point(Point const &inst);
 
 		/* destructor */

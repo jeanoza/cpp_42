@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:51:12 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/15 13:11:04 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:34:08 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Point::Point(void) : _x(Fixed(0)), _y(Fixed(0)) {
 		<< this->_x << ", " << this->_y << ")" << std::endl;
 	return ;
 }
-Point::Point(Fixed const &x, Fixed const &y) : _x(x), _y(y) {
+Point::Point(float const x, float const y) : _x(x), _y(y) {
 	std::cout << "\nPoint: Parametric constructor called (" 
 		<< this->_x << ", " << this->_y << ")" << std::endl;
 	return ;
@@ -38,7 +38,7 @@ Point::~Point(void) {
 
 /* Copy Assignation */
 Point &Point::operator=(Point const &rhs) {
-	if (this->_x != rhs._x || this->_y != rhs._y) *this = Point(rhs._x, rhs._y);
+	if (this->_x != rhs._x || this->_y != rhs._y) *this = Point(rhs._x.toFloat(), rhs._y.toFloat());
 	std::cout << "\nPoint: Copy assignation called ("
 		<< this->_x << ", " << this->_y << ")" << std::endl;
 	return *this;
@@ -51,3 +51,4 @@ Fixed const &Point::getX(void) const {
 Fixed const &Point::getY(void) const {
 	return this->_y;
 }
+
