@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:24:18 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/15 13:32:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/15 14:08:29 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,18 @@ class Point {
 		/* copy assignment operator overloading */
 		Point &operator=(Point const &rhs);
 
+		bool operator==(Point const &rhs);
+		bool operator!=(Point const &rhs);
+
 		/* Getters */
 		Fixed const	&getX(void) const;
 		Fixed const &getY(void) const;
 
 		/* member functions */
 };
+/* Non-member functions */
+std::ostream &operator<<(std::ostream &o, Point const &rhs);
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

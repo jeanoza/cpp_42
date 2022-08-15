@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:35:32 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 18:35:09 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:41:09 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,9 @@ class Fixed {
 		/* others */
 		float	toFloat(void) const;
 		int		toInt(void) const;
-
-
-		
-
 };
 
 /* ostream overloading */
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

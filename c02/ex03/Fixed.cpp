@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 18:31:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/14 18:37:05 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:41:06 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,8 +158,8 @@ int		Fixed::toInt(void) const {
 }
 
 /* ostream overloading */
-std::ostream &operator<<(std::ostream &o, Fixed const &inst) {
-	o << inst.toFloat();
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs) {
+	o << rhs.toFloat();
 	return o;
 }
 
