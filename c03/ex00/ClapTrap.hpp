@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:52 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 12:43:35 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 12:47:37 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@
 #  define WHT "\033[0;37m"
 #  define DFT "\033[0m"
 # endif
-
-#define COUNT_ATTACK 8
-#define COUNT_TAKE_D 3
-#define COUNT_REPAIR 3
 
 # include <iostream>
 
