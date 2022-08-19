@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:54 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:37:55 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 18:50:13 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
+	this->_keeperMode = false;
 	return;
 }
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
@@ -25,6 +26,7 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
+	this->_keeperMode = false;
 	return;
 }
 // ScavTrap::ScavTrap(const ScavTrap &inst) : ClapTrap(inst) {
@@ -53,12 +55,23 @@ void	ScavTrap::beRepaired(unsigned int amount) {
 	ClapTrap::beRepaired(amount);
 }
 
+bool	ScavTrap::getKeeperMode(void) const{
+	return this->_keeperMode;
+}
+
+void	ScavTrap::guardGate(void) {
+	//TODO: boolean gateKeeperMode = false => true;
+	this->_keeperMode = true;
+	std::cout << CYN << "ScavTrap: " << this->_name << " is now in gate keeper mode\n" << DFT;
+}
+
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, const ScavTrap &rhs) {
 	o << GRN << "\nState of ScavTrap: " << rhs.getName()
 	  << "\n _hitPoints: " << rhs.getHitPoints()
 	  << "\n _energyPoints: " << rhs.getEnergyPoints()
 	  << "\n _attackDamage: " << rhs.getAttackDamage()
+	  << "\n _keeperMode: " << rhs.getKeeperMode()
 	  << DFT;
 
 	return o;

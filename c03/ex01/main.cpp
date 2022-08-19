@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:21:06 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 18:44:14 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int main(void) {
 	std::cout << YEL << "\n\nTest repair:\n" << DFT;
 	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
 	std::cout << b << std::endl;
+
+	b.guardGate();
 
 	std::cout << "\n\n= = = = = = = Test assignation operator = = = = = = =\n\n";
 	

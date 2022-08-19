@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:35 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:37:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 18:49:23 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 //FIXME: ca sert a rien de overwrite copy constructor and copy assignation ici.
 class ScavTrap : public ClapTrap {
+	private:
+		bool	_keeperMode;
 
 	public:
 		ScavTrap(void);
@@ -26,6 +28,9 @@ class ScavTrap : public ClapTrap {
 		~ScavTrap(void);
 
 		// ScavTrap	&operator=(const ScavTrap &rhs);
+
+		/* getter */
+		bool	getKeeperMode(void) const;
 
 		/* member function */
 		void	attack(const std::string &target);

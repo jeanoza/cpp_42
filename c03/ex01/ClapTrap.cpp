@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:29:04 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 18:46:42 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ unsigned int	ClapTrap::getEnergyPoints(void) const{
 unsigned int	ClapTrap::getAttackDamage(void) const{
 	return this->_attackDamage;
 }
+
 
 /* member functions */
 void	ClapTrap::attack(const std::string &target) {
