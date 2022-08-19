@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:52 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 12:47:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 16:49:52 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
@@ -42,6 +42,7 @@ class ClapTrap {
 
 		ClapTrap	&operator=(const ClapTrap &rhs);
 
+		/* getters */
 		std::string		getName(void) const;
 		unsigned int	getHitPoints(void) const;
 		unsigned int	getEnergyPoints(void) const;
@@ -54,6 +55,6 @@ class ClapTrap {
 };
 
 /* ostream overloading */
-std::ostream& operator<<(std::ostream& o, const ClapTrap &rhs);
+std::ostream &operator<<(std::ostream &o, const ClapTrap &rhs);
 
 #endif

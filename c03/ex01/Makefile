@@ -1,12 +1,12 @@
-NAME = ClapTrap
+NAME = ScavTrap
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC = ClapTrap.hpp
+INC = ClapTrap.hpp ScavTrap.hpp
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:52 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 12:47:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 16:15:17 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ class ClapTrap {
 };
 
 /* ostream overloading */
-std::ostream& operator<<(std::ostream& o, const ClapTrap &rhs);
+std::ostream &operator<<(std::ostream &o, const ClapTrap &rhs);
 
 #endif
