@@ -6,12 +6,28 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:52 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/15 18:39:48 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/19 12:43:35 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAP_TRAP_HPP
 # define CLAP_TRAP_HPP
+
+
+# ifndef COLOR
+#  define RED "\033[0;31m"
+#  define GRN "\033[0;32m"
+#  define YEL "\033[0;33m"
+#  define BLU "\033[0;34m"
+#  define MAG "\033[0;35m" //purple
+#  define CYN "\033[0;36m" //emerald
+#  define WHT "\033[0;37m"
+#  define DFT "\033[0m"
+# endif
+
+#define COUNT_ATTACK 8
+#define COUNT_TAKE_D 3
+#define COUNT_REPAIR 3
 
 # include <iostream>
 
@@ -23,16 +39,25 @@ class ClapTrap {
 		unsigned int	_attackDamage;
 	public:
 		ClapTrap(void);
-		ClapTrap(std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
-		ClapTrap(ClapTrap const &inst);
+		ClapTrap(const std::string name);
+		ClapTrap(const ClapTrap &inst);
 		//TODO:virtual on destructor maybe?
 		~ClapTrap(void);
 
-		#pragma region MemberFunctions
-		void	attack(std::string const &target);
+		ClapTrap	&operator=(const ClapTrap &rhs);
+
+		std::string		getName(void) const;
+		unsigned int	getHitPoints(void) const;
+		unsigned int	getEnergyPoints(void) const;
+		unsigned int	getAttackDamage(void) const;
+
+		/* member functions */
+		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		#pragma endregion
 };
+
+/* ostream overloading */
+std::ostream& operator<<(std::ostream& o, const ClapTrap &rhs);
 
 #endif

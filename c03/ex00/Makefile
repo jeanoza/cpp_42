@@ -1,4 +1,4 @@
-NAME = CrapTrap
+NAME = ClapTrap
 
 CC = c++
 
