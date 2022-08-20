@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 09:56:53 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:25:29 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@
 #define COUNT_REPAIR 3
 
 int main(void) {
+	ScavTrap a;
 	ScavTrap b("origin");
+
+	std::cout << "\n\n= = = = = = = Initial values = = = = = = =\n\n";
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << "\n\n= = = = = = = = = = = = = = = = = = = = =\n\n";	
 
 	std::cout << YEL << "\n\nTest attack:\n" << DFT;
 	for (int i = 0; i < COUNT_ATTACK; i++) b.attack("world");

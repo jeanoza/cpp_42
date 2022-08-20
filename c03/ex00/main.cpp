@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 17:21:54 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:23:31 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@
 
 int main(void) {
 	ClapTrap a("hello");
+	ClapTrap b;
 
+	std::cout << "\n\n= = = = = = = Initial values = = = = = = =\n\n";
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << "\n\n= = = = = = = = = = = = = = = = = = = = =\n\n";	
 
 	std::cout << YEL << "\n\nTest attack:\n" << DFT;
 	for (int i = 0; i < COUNT_ATTACK; i++) a.attack("world");

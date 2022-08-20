@@ -97,7 +97,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, const ClapTrap &rhs) {
-	o << YEL << "\nState of Trap: " << rhs.getName()
+	o << CYN << "\nState of Trap: " << rhs.getName()
 	  << "\n _hitPoints: " << rhs.getHitPoints()
 	  << "\n _energyPoints: " << rhs.getEnergyPoints()
 	  << "\n _attackDamage: " << rhs.getAttackDamage()

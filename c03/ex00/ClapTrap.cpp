@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:22:01 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:20:45 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, const ClapTrap &rhs) {
-	o << CYN << "\nState of ClapTrap: " << rhs.getName()
+	o << YEL << "\nState of Trap: " << rhs.getName()
 	  << "\n _hitPoints: " << rhs.getHitPoints()
 	  << "\n _energyPoints: " << rhs.getEnergyPoints()
 	  << "\n _attackDamage: " << rhs.getAttackDamage()
-	  << DFT;
+	  << DFT << "\n\n";
 
 	return o;
 }

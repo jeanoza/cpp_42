@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:54 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 09:43:44 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:16:34 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	ScavTrap::guardGate(void) {
 
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, const ScavTrap &rhs) {
-	o << GRN << "\nState of ScavTrap: " << rhs.getName()
+	o << CYN << "\nState of ScavTrap: " << rhs.getName()
 	  << "\n _hitPoints: " << rhs.getHitPoints()
 	  << "\n _energyPoints: " << rhs.getEnergyPoints()
 	  << "\n _attackDamage: " << rhs.getAttackDamage()
 	  << "\n _keeperMode: " << rhs.getKeeperMode()
-	  << DFT;
+	  << DFT << "\n\n";
+
 	return o;
 }

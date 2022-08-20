@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 10:01:08 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 13:41:36 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:41:46 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	FragTrap::beRepaired(unsigned int amount) {
 	std::cout << MAG <<"FragTrap:: " << DFT;
 	ClapTrap::beRepaired(amount);
 }
-
 void FragTrap::highFivesGuys(void) {
 	std::cout << MAG << "FragTrap::" << this->_name << " DO HIGH FIVES GUYS!\n" << DFT;
 }
