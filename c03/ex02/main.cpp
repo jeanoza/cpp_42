@@ -6,19 +6,19 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 09:56:53 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 10:32:33 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 #define COUNT_ATTACK 8
 #define COUNT_TAKE_D 3
 #define COUNT_REPAIR 3
 
 int main(void) {
-	ScavTrap b("origin");
+	FragTrap b("origin");
 
 	std::cout << YEL << "\n\nTest attack:\n" << DFT;
 	for (int i = 0; i < COUNT_ATTACK; i++) b.attack("world");
@@ -29,31 +29,37 @@ int main(void) {
 	std::cout << YEL << "\n\nTest repair:\n" << DFT;
 	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
 	std::cout << b << std::endl;
+	
+	b.highFivesGuys();
 
-	b.guardGate();
 
 	std::cout << "\n\n= = = = = = = Test assignation operator = = = = = = =\n\n";
 	
-	ScavTrap c = b;
+	FragTrap c = b;
 
 	std::cout << YEL << "\n\nTest repair:\n" << DFT;
 	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
-	std::cout << "\n\nScavTrap c(new) - copy of b:\n";
+	std::cout << "\n\nFragTrap c(new) - copy of b:\n";
 	std::cout << c << std::endl;
-	std::cout << "\n\nScavTrap b(old):\n";
+	std::cout << "\n\nFragTrap b(old):\n";
 	std::cout << b << std::endl;
+	
+	c.highFivesGuys();
+
 
 
 	std::cout << "\n\n= = = = = = = Test copy constructor = = = = = = =\n\n";
 	
-	ScavTrap d(b);
+	FragTrap d(b);
 
 	std::cout << YEL << "\n\nTest repair:\n" << DFT;
 	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
-	std::cout << "\n\nScavTrap d(new) - copy of b:\n";
+	std::cout << "\n\nFragTrap d(new) - copy of b:\n";
 	std::cout << d << std::endl;
-	std::cout << "\n\nScavTrap b(old):\n";
+	std::cout << "\n\nFragTrap b(old):\n";
 	std::cout << b << std::endl;
+
+	d.highFivesGuys();
 
 	std::cout << "\n\n";
 
