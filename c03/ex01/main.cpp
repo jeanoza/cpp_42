@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:44:14 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 09:37:31 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(void) {
 
 
 	std::cout << "\n\n= = = = = = = Test copy constructor = = = = = = =\n\n";
-
+	
 	ScavTrap d(b);
 
 	std::cout << YEL << "\n\nTest repair:\n" << DFT;
@@ -56,7 +56,6 @@ int main(void) {
 	std::cout << b << std::endl;
 
 	std::cout << "\n\n";
-
 
 	return (0);
 }

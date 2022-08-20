@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:54 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/19 18:50:13 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 09:43:44 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ bool	ScavTrap::getKeeperMode(void) const{
 }
 
 void	ScavTrap::guardGate(void) {
-	//TODO: boolean gateKeeperMode = false => true;
 	this->_keeperMode = true;
 	std::cout << CYN << "ScavTrap: " << this->_name << " is now in gate keeper mode\n" << DFT;
 }
@@ -73,6 +72,5 @@ std::ostream &operator<<(std::ostream &o, const ScavTrap &rhs) {
 	  << "\n _attackDamage: " << rhs.getAttackDamage()
 	  << "\n _keeperMode: " << rhs.getKeeperMode()
 	  << DFT;
-
 	return o;
 }
