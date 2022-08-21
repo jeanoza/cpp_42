@@ -6,14 +6,14 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/21 14:43:56 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/20 13:20:21 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) {
-	std::cout << "Default constructor called\n";
+	std::cout << "ClapTrap: Default constructor called\n";
 	this->_name = "Default";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -21,25 +21,26 @@ ClapTrap::ClapTrap(void) {
 	return ;
 }
 ClapTrap::ClapTrap(const std::string name) : _name(name) {
-	std::cout << "Parametric constructor called: " << this->_name << std::endl;
+	std::cout << "ClapTrap: Parametric constructor called: " << this->_name << std::endl;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
 	return;
 }
 ClapTrap::ClapTrap(const ClapTrap &inst) {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap: Copy constructor called\n";
 	*this = inst;
 	return ;
 }
-ClapTrap::~ClapTrap(void) {
-	std::cout << "Destructor called\n";
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "ClapTrap: Destructor called\n";
 	return;
 }
-ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
-	std::cout << "Copy assignation operator called\n";
-	if (this != &rhs)
-	{
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
+{
+	std::cout << "ClapTrap: Copy assignation operator called\n";
+	if (this != &rhs) {
 		this->_name = rhs._name;
 		this->_hitPoints = rhs._hitPoints;
 		this->_attackDamage = rhs._attackDamage;
@@ -62,11 +63,12 @@ unsigned int	ClapTrap::getAttackDamage(void) const{
 	return this->_attackDamage;
 }
 
+
 /* member functions */
 void	ClapTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		std::cout << "ClapTrap "<< this->_name << " attacks " << target
-				  << ", causing " << this->_attackDamage << " points of damage!\n";
+		std::cout << "ClapTrap " << this->_name << " attacks " << target
+			<< ", causing " << this->_attackDamage << " points of damage!\n";
 		--this->_energyPoints;
 	} else std::cout << RED << this->_name
 		<< " doesn't have enough energy or hit point to attack a cible!\n" << DFT;
@@ -76,9 +78,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		//Protection pour ne pas avoir underflow à this->_hitPoints
 		if (this->_hitPoints < amount) this->_hitPoints = 0;
 		else this->_hitPoints -= amount;
-		std::cout << "ClapTrap " << this->_name << " lost " << amount
+		std::cout << this->_name << " lost " << amount
 				  << " hit point (current: " << this->_hitPoints << ")\n" << DFT;
-	} else std::cout << RED << "ClapTrap " << this->_name << " is already dead!\n" << DFT;
+	} else std::cout << RED << this->_name << " is already dead!\n" << DFT;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
@@ -86,7 +88,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		//Il n'y a pas de max_limit de _hitPoint dans le sujet, je n'ai pas à le gérér.
 		this->_hitPoints += amount;
 		--this->_energyPoints;
-		std::cout << "ClapTrap " << this->_name << " has been repaired with "
+		std::cout << this->_name << " has been repaired with "
 				  << amount << " point.(current: " << this->_hitPoints << ")\n";
 	}
 	else std::cout << RED << this->_name

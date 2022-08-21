@@ -1,12 +1,12 @@
-NAME = ClapTrap
+NAME = Polymorphism
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC = ClapTrap.hpp
+INC = Animal.hpp
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp Animal.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
