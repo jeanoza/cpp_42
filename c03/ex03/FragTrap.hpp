@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 09:47:07 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 12:26:19 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/21 14:23:34 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ class FragTrap : virtual public ClapTrap {
 
 	public:
 	FragTrap(void);
-	FragTrap(std::string name);
+	FragTrap(const std::string name);
+	FragTrap(const FragTrap &inst);
+
 	~FragTrap(void);
 	
 	/* member functions */
 	void	attack(const std::string &target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
 	
 	/* Only FragTrap */
 	void	highFivesGuys(void);

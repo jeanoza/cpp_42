@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:23:56 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 14:42:29 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/21 14:00:49 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,48 +28,48 @@ int main(void) {
 	std::cout << b << std::endl;
 	std::cout << "\n\n= = = = = = = = = = = = = = = = = = = = =\n\n";
 
-	// std::cout << YEL << "\n\nTest attack:\n" << DFT;
-	// for (int i = 0; i < COUNT_ATTACK; i++) b.attack("world");
-	// std::cout << b << std::endl;
-	// std::cout << YEL << "\n\nTest take damage:\n" << DFT;
-	// for (int i = 0; i < COUNT_TAKE_D; ++i) b.takeDamage(3);
-	// std::cout << b << std::endl;
-	// std::cout << YEL << "\n\nTest repair:\n" << DFT;
-	// for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
-	// std::cout << b << std::endl;
+	std::cout << YEL << "\n\nTest attack:\n" << DFT;
+	for (int i = 0; i < COUNT_ATTACK; i++) b.attack("world");
+	std::cout << b << std::endl;
+	std::cout << YEL << "\n\nTest take damage:\n" << DFT;
+	for (int i = 0; i < COUNT_TAKE_D; ++i) b.takeDamage(3);
+	std::cout << b << std::endl;
+	std::cout << YEL << "\n\nTest repair:\n" << DFT;
+	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
+	std::cout << b << std::endl;
 	
-	// b.whoAmI();
+	b.whoAmI();
 
 
-	// std::cout << "\n\n= = = = = = = Test assignation operator = = = = = = =\n\n";
+	std::cout << "\n\n= = = = = = = Test assignation operator = = = = = = =\n\n";
 	
-	// DiamondTrap c = b;
+	DiamondTrap c = b;
 
-	// std::cout << YEL << "\n\nTest repair:\n" << DFT;
-	// for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
-	// std::cout << "\n\nDiamondTrap c(new) - copy of b:\n";
-	// std::cout << c << std::endl;
-	// std::cout << "\n\nDiamondTrap b(old):\n";
-	// std::cout << b << std::endl;
+	std::cout << YEL << "\n\nTest repair:\n" << DFT;
+	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
+	std::cout << "\n\nDiamondTrap c(new) - copy of b:\n";
+	std::cout << c << std::endl;
+	std::cout << "\n\nDiamondTrap b(old):\n";
+	std::cout << b << std::endl;
 	
-	// c.whoAmI();
+	c.whoAmI();
 
 
 
-	// std::cout << "\n\n= = = = = = = Test copy constructor = = = = = = =\n\n";
+	std::cout << "\n\n= = = = = = = Test copy constructor = = = = = = =\n\n";
 	
-	// DiamondTrap d(b);
+	DiamondTrap d(b);
 
-	// std::cout << YEL << "\n\nTest repair:\n" << DFT;
-	// for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
-	// std::cout << "\n\nDiamondTrap d(new) - copy of b:\n";
-	// std::cout << d << std::endl;
-	// std::cout << "\n\nDiamondTrap b(old):\n";
-	// std::cout << b << std::endl;
+	std::cout << YEL << "\n\nTest repair:\n" << DFT;
+	for (int i = 0; i < COUNT_REPAIR; ++i) b.beRepaired(5);
+	std::cout << "\n\nDiamondTrap d(new) - copy of b:\n";
+	std::cout << d << std::endl;
+	std::cout << "\n\nDiamondTrap b(old):\n";
+	std::cout << b << std::endl;
 
-	// d.whoAmI();
+	d.whoAmI();
 
-	// std::cout << "\n\n";
+	std::cout << "\n\n";
 
 	return (0);
 }

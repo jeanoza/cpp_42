@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 10:50:34 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/20 14:36:46 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/21 14:43:35 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		
 	public:
 		DiamondTrap(void);
-		DiamondTrap(std::string name);
+		DiamondTrap(const std::string name);
+		DiamondTrap(const DiamondTrap &inst);
 		~DiamondTrap(void);
+
+		/* getter */
+		std::string	getClapName(void) const;
 
 		/* member functions */
 		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
 
 		/* Only DiamondTrap */
 		void	whoAmI(void);
