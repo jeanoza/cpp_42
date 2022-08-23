@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongDog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:14 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 16:25:13 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/23 08:36:15 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONG_DOG_HPP
+# define WRONG_DOG_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal{
+class WrongDog : public WrongAnimal{
 	public:
-		Dog();
-		Dog(const Dog &inst);
-		~Dog();
+		WrongDog();
+		WrongDog(const WrongDog &inst);
+		~WrongDog();
 
 		/* member function override */
 		void makeSound() const;

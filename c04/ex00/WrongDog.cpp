@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongDog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 
-Dog::Dog() {
-	std::cout << GRN << "Dog::default constructor called\n" << DFT;
-	this->type = "Dog";
+WrongDog::WrongDog() {
+	std::cout << GRN << "WrongDog::default constructor called\n" << DFT;
+	this->type = "WrongDog";
 	return ;
 }
 
-Dog::Dog(const Dog &inst) {
-	std::cout << GRN << "Dog::copy constructor called\n" << DFT;
-	// this->type = "Dog";
+WrongDog::WrongDog(const WrongDog &inst) {
+	std::cout << GRN << "WrongDog::copy constructor called\n" << DFT;
+	// this->type = "WrongDog";
 	*this = inst;
 	return ;
 }
 
-Dog::~Dog() {
-	std::cout << GRN << "Dog::destructor called\n" << DFT;
+WrongDog::~WrongDog() {
+	std::cout << GRN << "WrongDog::destructor called\n" << DFT;
 	return ;
 }
 
-void	Dog::makeSound() const {
-	std::cout << "Dog::Wang! Wang!\n";
+void	WrongDog::makeSound() const {
+	std::cout << "WrongDog::Wang! Wang!\n";
 }

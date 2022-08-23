@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/23 08:36:54 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/22 15:11:55 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONG_ANIMAL_HPP
+# define WRONG_ANIMAL_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -26,20 +26,22 @@
 
 #include <iostream>
 
-class Animal {
+class WrongAnimal {
 	protected:
 		std::string type;
 
 	public:
-		Animal();
-		Animal(const Animal &inst);
-		virtual ~Animal();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &inst);
+		//TODO: don't put virtual in WrongAnimal class
+		~WrongAnimal();
 
-		Animal	&operator=(const Animal &rhs);
+		WrongAnimal	&operator=(const WrongAnimal &rhs);
 		
 		/* getter */
 		std::string getType() const;
 		/* member function */
-		virtual void makeSound() const;
+		//TODO: don't put virtual in WrongAnimal class
+		void makeSound() const;
 };
 #endif

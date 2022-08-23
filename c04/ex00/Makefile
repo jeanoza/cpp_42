@@ -1,12 +1,14 @@
+#TODO: check relink issue - when header changed
+
 NAME = Polymorphism
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC = Animal.hpp
+INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp 
 
-SRC = main.cpp Animal.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
