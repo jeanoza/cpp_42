@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:14 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 10:55:33 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 16:25:24 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class Dog : public Animal{
 		Dog();
 		Dog(const Dog &inst);
 		~Dog();
-		Dog &operator = (const Dog &rhs);
+
+		/* getter */
+		Brain *getBrain() const;
 
 		/* member function override */
 		void makeSound() const;

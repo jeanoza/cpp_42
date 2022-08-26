@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:33 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 16:08:00 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 17:03:57 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,46 @@ int main()
 	std::cout << "\n\nTEST BASIC:\n";
 	{
 		std::cout << YEL << "\n= = = = = = = = Test right classes = = = = = = = =\n" << DFT;
-		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
 		
-		std::cout << meta->getType() << " " << std::endl;
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 
-		meta->makeSound();
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
 
 		std::cout << YEL << "\n= = = = = = = = Free right classes = = = = = = = =\n" << DFT;
-		delete meta;
 		delete j;
 		delete i;
 	}
 	std::cout << "\n\nTEST DEEP COPY:\n";
-	Cat basic;
+	Dog basic;
+	Brain *basicBrain = basic.getBrain();
+	basicBrain->setIdeaById(0, "I think therefore I am.");
 	{
-		Cat tmp = basic;
-		std::cout << "tmp:	" << tmp.getBrain() << std::endl;
-		std::cout << "basic:	" << basic.getBrain() << std::endl;
+		Dog tmp = basic;
+		
+		Brain *tmpBrain = tmp.getBrain();
+		std::cout << "\n\n\t1.TEST Memory address: \n";
+		std::cout << "\tbasicBrain: " << basicBrain << std::endl;
+		std::cout << "\ttmpBrain:	" << tmpBrain << std::endl;
+;
+		std::cout << "\tbasicBrain->getIdeaById(0): " << basicBrain->getIdeaById(0) << std::endl;
+		std::cout << "\ttmpBrain->getIdeaById(0):	" << tmpBrain->getIdeaById(0) << std::endl;
+
+		std::cout << "\n\n\t2.TEST value in brain string:\n";
+		tmpBrain->setIdeaById(0, "Existence procedes essence.");
+		std::cout << "\tbasicBrain->getIdeaById(0): " << basicBrain->getIdeaById(0) << std::endl;
+		std::cout << "\ttmpBrain->getIdeaById(0):	" << tmpBrain->getIdeaById(0) << std::endl;
+
+		std::cout << "\n\n";
+
+
 	}
 	//FIXME: test with valgrind for leaks:)
 	//FIXME: remove this in linux os
-	system("leaks Brain");
+	// system("leaks Brain");
 	
 	return 0;
 }
