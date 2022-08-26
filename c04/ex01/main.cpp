@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:33 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/23 08:52:17 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 08:43:02 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int main()
 		delete j;
 		delete i;
 	}
+	//FIXME: test with valgrind for leaks:)
+	//FIXME: remove this in linux os
+	system("leaks Brain");
 	
 	return 0;
 }

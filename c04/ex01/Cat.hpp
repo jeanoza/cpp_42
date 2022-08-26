@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:11 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 15:05:25 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 08:31:21 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "Animal.hpp"
 
 class Cat : public Animal{
+	private:
+		Brain	*_brain;
 	
 	public :
 		Cat();

@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 15:47:18 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:33:34 by kyubongchoi      ###   ########.fr       */
+/*   Created: 2022/08/24 11:07:27 by kyubongchoi       #+#    #+#             */
+/*   Updated: 2022/08/26 08:40:21 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog() {
-	std::cout << GRN << "Dog::default constructor called\n" << DFT;
-	this->type = "Dog";
-	this->_brain = new Brain();
+Brain::Brain() {
+	std::cout << CYN << "Brain::default constructor called\n" << DFT;
 	return ;
 }
 
-Dog::Dog(const Dog &inst) {
-	std::cout << GRN << "Dog::copy constructor called\n" << DFT;
+Brain::Brain(const Brain &inst) {
+	std::cout << CYN << "Brain::copy constructor called\n" << DFT;
 	*this = inst;
 	return ;
 }
 
-Dog::~Dog() {
-	std::cout << GRN << "Dog::destructor called\n" << DFT;
-	delete this->_brain;
+Brain::~Brain() {
+	std::cout << CYN << "Brain::destructor called\n" << DFT;
 	return ;
 }
 
-void	Dog::makeSound() const {
-	std::cout << "Dog::Wang! Wang!\n";
+Brain &Brain::operator=(const Brain &rhs) {
+
+	if (this != &rhs) {
+		for (int i = 0; i > 100; ++i)
+			this->_ideas[i] = rhs._ideas[i];
+	}
+	return *this;
 }

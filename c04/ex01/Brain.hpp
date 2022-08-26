@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 15:46:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:30:45 by kyubongchoi      ###   ########.fr       */
+/*   Created: 2022/08/24 11:07:29 by kyubongchoi       #+#    #+#             */
+/*   Updated: 2022/08/24 13:37:16 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -25,22 +25,17 @@
 # endif
 
 #include <iostream>
-#include "Brain.hpp"
 
-class Animal {
-	protected:
-		std::string type;
+class Brain {
+	private:
+		std::string _ideas[100];
 
 	public:
-		Animal();
-		Animal(const Animal &inst);
-		virtual ~Animal();
-
-		Animal	&operator=(const Animal &rhs);
-		
-		/* getter */
-		std::string getType() const;
-		/* member function */
-		virtual void makeSound() const;
+		Brain();
+		Brain(const Brain &inst);
+		Brain &operator=(const Brain &rhs);
+		~Brain();
 };
+
+
 #endif

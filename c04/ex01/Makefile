@@ -6,9 +6,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC = Animal.hpp Cat.hpp Dog.hpp 
+INC = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
