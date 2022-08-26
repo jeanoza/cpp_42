@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:33 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/23 08:39:06 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 15:57:12 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int main()
 
 	std::cout << "\n\n====== test2 ======\n\n";
 
-	Animal meta2(*meta);
-	Animal j2(*j);
-	Animal i2 (*i);
+	Animal meta2 = *meta;
+	Animal j2 = *j;
+	Animal i2 = *i;
 
 	std::cout << meta2.getType() << " " << std::endl;
 	std::cout << j2.getType() << " " << std::endl;
@@ -62,9 +62,9 @@ int main()
 
 	std::cout << "\n\n====== test4 ======\n\n";
 
-	Animal meta4(*meta3);
-	Animal j4(*j3);
-	Animal i4(*i3);
+	Animal meta4 = *meta3;
+	Animal j4 = *j3;
+	Animal i4 = *i3;
 
 	std::cout << meta4.getType() << " " << std::endl;
 	std::cout << j4.getType() << " " << std::endl;
@@ -72,6 +72,25 @@ int main()
 	meta4.makeSound();
 	i4.makeSound(); //will output the cat sound!
 	j4.makeSound();
+
+
+	std::cout << "\n\n====== test5 ======\n\n";
+
+	Animal meta5;
+	Animal j5;
+	Animal i5;
+
+	meta5 = meta4;
+	j5 = j4;
+	i5 = i4;
+
+	std::cout << meta4.getType() << " " << std::endl;
+	std::cout << j4.getType() << " " << std::endl;
+	std::cout << i4.getType() << " " << std::endl;
+	meta4.makeSound();
+	i4.makeSound(); //will output the cat sound!
+	j4.makeSound();
+
 
 	//Free all class dynamic allocated
 	std::cout << RED << "\n\n------ FREE dynamic allocation() -----\n\n" << DFT;

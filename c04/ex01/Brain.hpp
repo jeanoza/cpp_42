@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 11:07:29 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 09:13:10 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 15:31:29 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Brain {
 	public:
 		Brain();
 		Brain(const Brain &inst);
-		Brain &operator=(const Brain &rhs);
 		~Brain();
+		Brain &operator=(const Brain &rhs);
 
 		/* getter */
 		std::string getIdeaById(int id) const;

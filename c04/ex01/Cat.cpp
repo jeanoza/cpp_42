@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 10:56:50 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 15:43:38 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,19 @@ Cat::Cat() {
 }
 Cat::Cat(const Cat &inst) {
 	std::cout << YEL << "Cat::copy constructor called\n" << DFT;
-	*this = inst;
+	this->type = inst.type;
+	this->_brain = new Brain(*(inst._brain));
 	return ;
 }
 Cat::~Cat() {
 	std::cout << YEL << "Cat::destructor called\n" << DFT;
-	delete this->_brain;
+	if (this->_brain) delete this->_brain;
 	return ;
 }
 
-Cat &Cat::operator=(const Cat &rhs) {
-	std::cout << YEL << "Cat::copy assignation called\n" << DFT;
-	if (this->type != rhs.type) this->type = rhs.type;
-	return (*this);
-}
-
 /* getter */
-std::string Cat::getIdeaById(int id) const{
-	return this->_brain->getIdeaById(id);
-}
-/* setter */
-void		Cat::setIdeaById(int id, const std::string idea) {
-	this->_brain->setIdeaById(id, idea);
+Brain *Cat::getBrain() const {
+	return this->_brain;
 }
 
 void	Cat::makeSound() const{

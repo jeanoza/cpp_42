@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 10:53:59 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 15:37:31 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,13 @@ Cat::Cat() {
 }
 Cat::Cat(const Cat &inst) {
 	std::cout << YEL << "Cat::copy constructor called\n" << DFT;
-	*this = inst;
+	this->type = inst.type;
 	return ;
 }
 
 Cat::~Cat() {
 	std::cout << YEL << "Cat::destructor called\n" << DFT;
 	return ;
-}
-
-Cat &Cat::operator=(const Cat &rhs) {
-	std::cout << YEL << "Cat::copy assignation called\n" << DFT;
-	if (this->type != rhs.type) this->type = rhs.type;
-	return (*this);
 }
 
 void	Cat::makeSound() const{

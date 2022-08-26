@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:42 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 15:05:57 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 16:05:24 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal() {
 }
 Animal::Animal(const Animal &inst) {
 	std::cout << "Animal::copy constructor called\n";
-	*this = inst;
+	this->type = inst.type;
 	return ;
 }
 Animal::~Animal() {

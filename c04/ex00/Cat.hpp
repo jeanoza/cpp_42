@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:11 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 10:50:42 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 15:34:09 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Cat : public Animal{
 		Cat();
 		Cat(const Cat &inst);
 		~Cat();
-		Cat &operator=(const Cat &rhs);
 
 		/* member function override */
 		void makeSound() const;
