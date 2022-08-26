@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 09:44:59 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 10:56:50 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ Cat::~Cat() {
 	std::cout << YEL << "Cat::destructor called\n" << DFT;
 	delete this->_brain;
 	return ;
+}
+
+Cat &Cat::operator=(const Cat &rhs) {
+	std::cout << YEL << "Cat::copy assignation called\n" << DFT;
+	if (this->type != rhs.type) this->type = rhs.type;
+	return (*this);
 }
 
 /* getter */

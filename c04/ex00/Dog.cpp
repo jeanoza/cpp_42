@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:18 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 15:35:41 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 10:57:10 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ Dog::Dog(const Dog &inst) {
 Dog::~Dog() {
 	std::cout << GRN << "Dog::destructor called\n" << DFT;
 	return ;
+}
+
+Dog &Dog::operator=(const Dog &rhs) {
+	std::cout << GRN << "Dog::coppy assignation called\n" << DFT;
+	if (this->type != rhs.type) this->type = rhs.type;
+	return (*this);
 }
 
 void	Dog::makeSound() const {

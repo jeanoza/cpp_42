@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:14 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/23 08:36:15 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 11:01:32 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class WrongDog : public WrongAnimal{
 		WrongDog();
 		WrongDog(const WrongDog &inst);
 		~WrongDog();
+		WrongDog &operator=(const WrongDog &rhs);
 
 		/* member function override */
 		void makeSound() const;

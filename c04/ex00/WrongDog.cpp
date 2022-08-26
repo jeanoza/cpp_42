@@ -20,7 +20,6 @@ WrongDog::WrongDog() {
 
 WrongDog::WrongDog(const WrongDog &inst) {
 	std::cout << GRN << "WrongDog::copy constructor called\n" << DFT;
-	// this->type = "WrongDog";
 	*this = inst;
 	return ;
 }
@@ -28,6 +27,11 @@ WrongDog::WrongDog(const WrongDog &inst) {
 WrongDog::~WrongDog() {
 	std::cout << GRN << "WrongDog::destructor called\n" << DFT;
 	return ;
+}
+WrongDog &WrongDog::operator=(const WrongDog &rhs) {
+	std::cout << YEL << "WrongDog::copy assignation called\n" << DFT;
+	if (this->type != rhs.type) this->type = rhs.type;
+	return (*this);
 }
 
 void	WrongDog::makeSound() const {
