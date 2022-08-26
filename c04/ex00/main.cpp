@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:33 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/23 08:46:34 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 09:51:09 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int main()
 		meta->makeSound();
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
-
 		std::cout << YEL << "\n= = = = = = = = Free right classes = = = = = = = =\n" << DFT;
 		delete meta;
 		delete j;
@@ -56,6 +55,9 @@ int main()
 		delete meta;
 		delete j;
 		delete i;
+	}
+	{
+		
 	}
 	return 0;
 }

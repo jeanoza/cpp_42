@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:35:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 09:44:59 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ Cat::~Cat() {
 	delete this->_brain;
 	return ;
 }
+
+/* getter */
+std::string Cat::getIdeaById(int id) const{
+	return this->_brain->getIdeaById(id);
+}
+/* setter */
+void		Cat::setIdeaById(int id, const std::string idea) {
+	this->_brain->setIdeaById(id, idea);
+}
+
 void	Cat::makeSound() const{
 	std::cout << "Cat::Nya-on Nya-on\n";
 }

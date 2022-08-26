@@ -41,7 +41,6 @@ class WrongAnimal {
 		/* getter */
 		std::string getType() const;
 		/* member function */
-		//TODO: don't put virtual in WrongAnimal class
 		void makeSound() const;
 };
 #endif

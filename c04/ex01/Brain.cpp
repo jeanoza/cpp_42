@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 11:07:27 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:40:21 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 09:13:12 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Brain::~Brain() {
 	return ;
 }
 
+
 Brain &Brain::operator=(const Brain &rhs) {
 
 	if (this != &rhs) {
@@ -35,4 +36,17 @@ Brain &Brain::operator=(const Brain &rhs) {
 			this->_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
+}
+
+/* getter */
+std::string Brain::getIdeaById(int id) const{
+	return this->_ideas[id];
+}
+std::string *Brain::getAllIdeas() {
+	return this->_ideas;
+}
+
+/* setter */
+void Brain::setIdeaById(int id, const std::string idea) {
+	this->_ideas[id] = idea;
 }

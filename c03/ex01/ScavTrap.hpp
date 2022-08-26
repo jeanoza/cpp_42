@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:35 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 16:10:25 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 10:32:43 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(const ScavTrap &inst);
 		~ScavTrap(void);
 
-		// ScavTrap	&operator=(const ScavTrap &rhs);
+		ScavTrap	&operator=(const ScavTrap &rhs);
 
 		/* getter */
 		bool	getKeeperMode(void) const;

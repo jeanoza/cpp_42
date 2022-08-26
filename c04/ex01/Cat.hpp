@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:47:11 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:31:21 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 09:36:00 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ class Cat : public Animal{
 		Cat();
 		Cat(const Cat &inst);
 		~Cat();
+
+		/* getter */
+		std::string getIdeaById(int id) const;
+
+		/* setter */
+		void		setIdeaById(int id, const std::string idea);
 
 		/* member function override */
 		void makeSound() const;

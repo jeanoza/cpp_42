@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:33 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 08:43:02 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 09:44:29 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
 		std::cout << meta->getType() << " " << std::endl;
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
+
 		meta->makeSound();
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();

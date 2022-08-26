@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:54 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/22 16:24:15 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 10:35:00 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << CYN << "ScavTrap::Destructor called\n" << DFT;
 	return ;
 }
-// ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs) {
-// 	std::cout << CYN << "ScavTrap: Operator assignation" << DFT;
-// 	ClapTrap::operator=(rhs);
-// 	return (*this);
-// }
+ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs) {
+	std::cout << CYN << "ScavTrap: Operator assignation" << DFT;
+	ClapTrap::operator=(rhs);
+	return (*this);
+}
 void	ScavTrap::attack(const std::string &target) {
 	std::cout << CYN <<"ScavTrap:: " << DFT;
 	ClapTrap::attack(target);
