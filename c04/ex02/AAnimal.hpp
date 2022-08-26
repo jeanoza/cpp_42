@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 11:07:29 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 17:08:01 by kyubongchoi      ###   ########.fr       */
+/*   Created: 2022/08/21 15:46:51 by kyubongchoi       #+#    #+#             */
+/*   Updated: 2022/08/26 17:13:22 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -25,21 +25,22 @@
 # endif
 
 #include <iostream>
+#include "Brain.hpp"
 
-class Brain {
-	private:
-		std::string _ideas[100];
+class AAnimal {
+	protected:
+		std::string type;
 
 	public:
-		Brain();
-		Brain(const Brain &inst);
-		~Brain();
-		Brain &operator=(const Brain &rhs);
+		AAnimal();
+		AAnimal(const AAnimal &inst);
+		virtual ~AAnimal();
 
+		AAnimal	&operator=(const AAnimal &rhs);
+		
 		/* getter */
-		std::string getIdeaById(int id) const;
-		/* setter */
-		void	setIdeaById(int id, const std::string idea);
+		std::string getType() const;
+		/* member function */
+		virtual void makeSound() const = 0;
 };
-
 #endif
