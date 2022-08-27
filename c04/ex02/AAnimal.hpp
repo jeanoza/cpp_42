@@ -6,12 +6,12 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:46:51 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 17:13:22 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/26 18:05:10 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef A_ANIMAL_HPP
+# define A_ANIMAL_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
