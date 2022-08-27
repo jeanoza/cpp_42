@@ -12,10 +12,10 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(INC)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
-.cpp.o:
+%.o:%.cpp $(INC)
 	$(CC) $(CFLAGS) -c $< -std=c++98
 
 clean:

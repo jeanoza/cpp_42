@@ -18,7 +18,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
 %.o:%.cpp $(INC)
-	$(CC) $(CFLAGS) -c -MMD $< -std=c++98
+	$(CC) $(CFLAGS) -c  $< -std=c++98
 
 clean:
 	rm -f $(OBJ)
