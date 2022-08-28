@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:25:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/27 13:31:57 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/28 15:19:51 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@
 #  define DFT "\033[0m"
 # endif
 
-# include <iostream>
-# include "ICharacter.hpp"
-# include "IMateriaSource.hpp"
-# include "AMateria.hpp"
-# include "MateriaSource.hpp"
-# include "Ice.hpp"
+#include <iostream>
 
 #endif

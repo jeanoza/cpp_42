@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:24:50 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/27 13:46:55 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/28 17:43:41 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,13 @@ AMateria &AMateria::operator=(const AMateria &rhs) {
 	std::cout << CYN << "AMateria::copy assignation\n" << DFT;
 	if (this != &rhs) this->type = rhs.type;
 	return (*this);
+}
+
+const std::string &AMateria::getType() const{
+	return this->type;
+}
+
+void		AMateria::use(ICharacter &target) {
+	(void)target;
+	std::cout << "AMateria::use\n";
 }

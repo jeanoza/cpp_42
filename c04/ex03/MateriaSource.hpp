@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:43:25 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/27 13:32:48 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/28 15:19:33 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MATERIA_SOURCE_HPP
 
 # include "main.hpp"
+# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
 # ifndef LIST_MAX_LENGTH
 # define LIST_MAX_LENGTH 4

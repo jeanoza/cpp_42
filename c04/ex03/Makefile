@@ -1,14 +1,14 @@
 #TODO: check relink issue - when header changed
 
-NAME = Polymorphism
+NAME = Interface
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall #-Wextra -Werror #-fsanitize=address
 
-INC =  ICharacter.hpp IMateriaSource.hpp AMateria.hpp MateriaSource.hpp Ice.hpp
+INC =  ICharacter.hpp IMateriaSource.hpp AMateria.hpp MateriaSource.hpp Character.hpp Ice.hpp Cure.hpp
 
-SRC = main.cpp MateriaSource.cpp 
+SRC = main.cpp MateriaSource.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
