@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:07:55 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 08:36:09 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 17:38:29 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cure::~Cure() {
 }
 
 Cure *Cure::clone() const{
-	return new Cure(*this);
+	return new Cure();
 }
 
 void Cure::use(ICharacter &target) {

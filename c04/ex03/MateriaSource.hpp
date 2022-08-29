@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:43:25 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/28 15:19:33 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 17:52:08 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
-# ifndef LIST_MAX_LENGTH
-# define LIST_MAX_LENGTH 4
-# endif
+
 
 class MateriaSource : public IMateriaSource {
 	private:

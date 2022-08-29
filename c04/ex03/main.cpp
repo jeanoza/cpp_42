@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:48:26 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 09:09:20 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 18:35:22 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,31 @@ int main() {
 		delete me;
 		delete src;
 	}
-	// {
-	// 	std::cout << "========== Deep Copy test ==========" << std::endl;
-	// 	Character me = Character("me");
-	// 	me.equip(new Ice());
-	// 	Character notMe = Character(me);
-	// 	notMe.equip(new Cure());
-	// 	Character bob = Character("bob");
-	// 	std::cout << "1): ";
-	// 	me.use(1, bob);
-	// 	std::cout << std::endl;
-	// 	std::cout << "2): ";
-	// 	notMe.use(1, bob);
-	// }
 	{
-		std::cout << "========== On the floor test ==========" << std::endl;
-		AMateria *ice = new Ice();
+		std::cout << "========== Deep Copy test ==========" << std::endl;
 		Character me = Character("me");
-		me.equip(ice);
-		me.unequip(0);
+		me.equip(new Ice());
+		Character notMe = Character(me);
+		notMe.equip(new Cure());
 		Character bob = Character("bob");
 		std::cout << "1): ";
-		me.use(0, bob);
+		me.use(1, bob);
 		std::cout << std::endl;
-		me.equip(ice);
 		std::cout << "2): ";
-		me.use(0, bob);
+		notMe.use(1, bob);
 	}
+	// {
+		// std::cout << "========== On the floor test ==========" << std::endl;
+		// AMateria *ice = new Ice();
+		// Character me = Character("me");
+		// me.equip(ice);
+		// me.unequip(0);
+		// Character bob = Character("bob");
+		// std::cout << "1): ";
+		// me.use(0, bob);
+		// std::cout << std::endl;
+		// me.equip(ice);
+		// std::cout << "2): ";
+		// me.use(0, bob);
+	// }
 }

@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 11:55:22 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 09:10:47 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 17:53:42 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Character : public ICharacter {
 	private:
 		std::string _name;
-		AMateria 	*_list[4];
+		AMateria 	*_list[LIST_MAX_LENGTH];
 		int			_currentIdx;
 
 	public:

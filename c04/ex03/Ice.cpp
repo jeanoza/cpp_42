@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:07:55 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 08:37:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 17:39:09 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Ice::~Ice() {
 }
 
 Ice *Ice::clone() const{
-	return new Ice(*this);
+	return new Ice();
 }
 
 void Ice::use(ICharacter &target) {

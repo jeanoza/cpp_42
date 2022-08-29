@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:25:48 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/28 15:19:51 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/29 17:52:19 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 #  define CYN "\033[0;36m" //emerald
 #  define WHT "\033[0;37m"
 #  define DFT "\033[0m"
+# endif
+
+# ifndef LIST_MAX_LENGTH
+#  define LIST_MAX_LENGTH 4
 # endif
 
 #include <iostream>
