@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 13:51:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:21:43 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 16:32:08 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ Character::Character(const Character &inst) {
 	this->_name = inst._name;
 	this->_currentIdx = inst._currentIdx;
 	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
-		if (inst._list[i]) {
+		if (inst._list[i]) 
 			this->_list[i] = inst._list[i]->clone();
-			// std::cout << RED << "Character::copy constructor::" << inst._list[i] << "\n" << DFT;
-		}
+		 else this->_list[i] = NULL;
 	}
 	return ;
 }
@@ -90,5 +89,5 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter &target) {
-	if (this->_list[idx] != NULL) this->_list[idx]->use(target);
+	if (this->_list[idx]) this->_list[idx]->use(target);
 }
