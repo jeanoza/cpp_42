@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:57:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 18:27:49 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 08:50:57 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 	std::cout << GRN << "MateriaSource:: copy assignation\n";
-	if (this != &rhs)
-		for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
-			this->_list[i] = rhs._list[i]->clone();
-		}
+	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
+		this->_list[i] = rhs._list[i]->clone();
+	}
 	return (*this);
 }
 
@@ -45,9 +44,8 @@ void		MateriaSource::learnMateria(AMateria* inst) {
 	int currentIndex = 0;
 
 	while (this->_list[currentIndex]) ++currentIndex;
-
 	if (currentIndex < LIST_MAX_LENGTH) {
-		this->_list[currentIndex] = inst;
+		this->_list[currentIndex] = inst->clone();
 	}
 }
 
