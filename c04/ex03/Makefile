@@ -4,7 +4,7 @@ NAME = Interface
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 INC =  ICharacter.hpp IMateriaSource.hpp AMateria.hpp MateriaSource.hpp Character.hpp Ice.hpp Cure.hpp
 

@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:48:26 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 08:59:03 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 16:16:36 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ int main() {
 		delete me;
 		delete src;
 	}
-	// {
-	// 	std::cout << "========== Deep Copy test ==========" << std::endl;
-	// 	Character me = Character("me");
-	// 	me.equip(new Ice());
-	// 	Character notMe = Character(me);
-	// 	notMe.equip(new Cure());
-	// 	Character bob = Character("bob");
-	// 	std::cout << "1): ";
-	// 	me.use(1, bob);
-	// 	std::cout << std::endl;
-	// 	std::cout << "2): ";
-	// 	notMe.use(1, bob);
-	// }
+	{
+		std::cout << "========== Deep Copy test ==========" << std::endl;
+		Character me = Character("me");
+		me.equip(new Ice());
+		Character notMe = Character(me);
+		notMe.equip(new Cure());
+		Character bob = Character("bob");
+		std::cout << "1): ";
+		me.use(1, bob); // no print because me has no Materia in index 1 slot.
+		std::cout << std::endl;
+		std::cout << "2): ";
+		notMe.use(1, bob);
+	}
 	{
 		std::cout << "========== On the floor test ==========" << std::endl;
 		AMateria *ice = new Ice();
@@ -65,5 +65,9 @@ int main() {
 		me.equip(ice);
 		std::cout << "2): ";
 		me.use(0, bob);
+		
+		// std::cout << DFT;
+		// system("leaks Interface");
+	
 	}
 }

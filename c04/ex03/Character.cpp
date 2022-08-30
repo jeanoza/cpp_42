@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 13:51:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 08:59:37 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 16:21:43 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ Character::Character(const Character &inst) {
 	this->_name = inst._name;
 	this->_currentIdx = inst._currentIdx;
 	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
-		if (inst._list[i]) this->_list[i] = inst._list[i]->clone();
-			std::cout << RED << "Character::copy constructor\n" << DFT;
+		if (inst._list[i]) {
+			this->_list[i] = inst._list[i]->clone();
+			// std::cout << RED << "Character::copy constructor::" << inst._list[i] << "\n" << DFT;
+		}
 	}
 	return ;
 }
@@ -43,7 +45,11 @@ Character::Character(const Character &inst) {
 Character::~Character() {
 	std::cout << BLU << "Character::destructor\n" << DFT;
 	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
-		if (this->_list[i] != NULL) delete this->_list[i];
+		if (this->_list[i]) {
+			// std::cout << RED << "Character::copy constructor::" << this->_list[i] << "\n" << DFT;
+			// std::cout << RED << "Character::copy constructor::" << this->_list[i]->getType() << "\n" << DFT;
+			delete this->_list[i];
+		}
 	}
 	return ;
 }
