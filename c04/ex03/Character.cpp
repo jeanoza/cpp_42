@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 13:51:17 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:32:08 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 16:37:00 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ Character::Character(const Character &inst) {
 	this->_name = inst._name;
 	this->_currentIdx = inst._currentIdx;
 	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
-		if (inst._list[i]) 
-			this->_list[i] = inst._list[i]->clone();
+		if (inst._list[i]) this->_list[i] = inst._list[i]->clone();
 		 else this->_list[i] = NULL;
 	}
 	return ;

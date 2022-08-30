@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:57:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 08:50:57 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/30 16:36:56 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ MateriaSource::MateriaSource() {
 
 MateriaSource::MateriaSource(const MateriaSource &inst) {
 	std::cout << GRN << "MateriaSource:: copy constructor\n";
-	for (int i = 0; i < LIST_MAX_LENGTH; ++i) this->_list[i] = inst._list[i]->clone();
+	for (int i = 0; i < LIST_MAX_LENGTH; ++i) {
+		if (inst._list[i]) this->_list[i] = inst._list[i]->clone();
+		 else this->_list[i] = NULL;
+	}
 	return ;
 }
 
