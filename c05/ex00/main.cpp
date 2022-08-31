@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/31 15:22:52 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/31 15:33:36 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ int main(void) {
 			std::cout << *a << std::endl;
 			delete a;
 			b = new Bureaucrat("Paul", -1);
-			// next 2 lines will not execute because of exception
+			// next 2 lines will not execute because of exception but the memory will be freed by program.
+			// to prouve this delete comment at catch
 			std::cout << *b << std::endl;
 			delete b;
 		} catch (std::exception &e) {
 			std::cout << RED << e.what() << DFT << std::endl;
+			// std::cout << *b << std::endl;
+			// delete b;
 		}
 	}
 	return 0;
