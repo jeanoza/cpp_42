@@ -24,13 +24,13 @@
 #  define DFT "\033[0m"
 # endif
 
-
 # include <iostream>
 
 class Bureaucrat {
 	private:
 		const std::string	_name;
 		int		_grade;
+	
 	public:
 		/* canonical form */
 		Bureaucrat();
@@ -47,16 +47,13 @@ class Bureaucrat {
 		void	incrementGrade();
 		void	decrementGrade();
 		
-
-
-	/* exceptions class's methode overriding */
-	class GradeTooHighException : public std::exception {
-		virtual const char* what() const throw();
-	};
-	class GradeTooLowException : public std::exception {
-		virtual const char* what() const throw();
-
-	};
+		/* exceptions class's methode overriding */
+		class GradeTooHighException : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class GradeTooLowException : public std::exception {
+			virtual const char* what() const throw();
+		};
 };
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
