@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:07:55 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:06:32 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/31 08:51:43 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ Ice::Ice() {
 	return ;
 }
 
-//TODO:test with type sent by parameter
-// Ice::Ice(const std::string &type) {
-// 	std::cout << CYN << "Ice::parametric constructor\n" << DFT;
-// 	this->type = type;
-// 	return ;
-// }
 Ice::Ice(const Ice &inst) {
 	std::cout << CYN << "Ice::copy constructor\n" << DFT;
 	this->type = inst.type;

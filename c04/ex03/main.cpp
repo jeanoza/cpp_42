@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:48:26 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:16:36 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/31 08:50:07 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 int main() {
 	{
-		std::cout << "========== Subject test ==========" << std::endl;
+		std::cout << "= = = = = = Subject test = = = = = =" << std::endl;
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
@@ -40,7 +40,7 @@ int main() {
 		delete src;
 	}
 	{
-		std::cout << "========== Deep Copy test ==========" << std::endl;
+		std::cout << "= = = = = = Deep copy test = = = = = =" << std::endl;
 		Character me = Character("me");
 		me.equip(new Ice());
 		Character notMe = Character(me);
@@ -53,14 +53,14 @@ int main() {
 		notMe.use(1, bob);
 	}
 	{
-		std::cout << "========== On the floor test ==========" << std::endl;
+		std::cout << "= = = = = = Unequip test = = = = = =" << std::endl;
 		AMateria *ice = new Ice();
 		Character me = Character("me");
 		me.equip(ice);
 		me.unequip(0);
 		Character bob = Character("bob");
 		std::cout << "1): ";
-		me.use(0, bob);
+		me.use(0, bob); //no print because  i've unequiped index 0 slot
 		std::cout << std::endl;
 		me.equip(ice);
 		std::cout << "2): ";

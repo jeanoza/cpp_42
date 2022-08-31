@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:18:40 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/28 17:34:04 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/31 08:52:17 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "main.hpp"
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Cure : public AMateria{
 	public:

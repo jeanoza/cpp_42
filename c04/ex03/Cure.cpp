@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:07:55 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:06:49 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/08/31 08:51:53 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ Cure::Cure() {
 	return ;
 }
 
-//TODO:test with type sent by parameter
-// Cure::Cure(const std::string &type) {
-// 	std::cout << MAG << "Cure::parametric constructor\n" << DFT;
-// 	this->type = type;
-// 	return ;
-// }
 Cure::Cure(const Cure &inst) {
 	std::cout << MAG << "Cure::copy constructor\n" << DFT;
 	this->type = inst.type;
