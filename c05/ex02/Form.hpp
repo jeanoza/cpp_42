@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:08:23 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 10:17:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/01 12:07:07 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Bureaucrat;
 
 class Form {
-	private:
+	protected:
 		const std::string	_name;
 		bool				_isSigned;
 		const int			_gradeToSign;
@@ -41,6 +41,7 @@ class Form {
 
 		/* member functions */
 		void	beSigned(const Bureaucrat &bInst);
+		void	execute(const Bureaucrat &bInst);
 
 		/* exceptions class's methode overriding */
 		class GradeTooHighException : public std::exception {
@@ -50,6 +51,9 @@ class Form {
 			virtual const char* what() const throw();
 		};
 		class AlreadySigned : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class NotSigned : public std::exception {
 			virtual const char* what() const throw();
 		};
 };

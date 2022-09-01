@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:03:36 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 10:18:35 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/01 11:55:57 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,14 @@ int	Form::getGradeToExec() const {
 
 /* member functions */
 void Form::beSigned(const Bureaucrat &bInst) {
-	//FIXME: exception or return ?
 	if (_isSigned) throw Form::AlreadySigned();
 	if (bInst.getGrade() > _gradeToSign) throw Form::GradeTooLowException();
 	_isSigned = true;
 }
-
+void Form::execute(const Bureaucrat &bInst) {
+	if (!_isSigned) throw Form::NotSigned();
+	if (bInst.getGrade() > _gradeToExec) throw Form::GradeTooLowException();
+}
 
 /* exceptions class's methode overriding */
 const char *Form::GradeTooHighException::what() const throw() {
@@ -71,6 +73,9 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 const char *Form::AlreadySigned::what() const throw() {
 	return "Form::AlreadySigned";
+}
+const char *Form::NotSigned::what() const throw() {
+	return "Form::NotSigned";
 }
 
 
