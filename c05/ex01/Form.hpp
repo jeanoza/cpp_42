@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:08:23 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/31 18:27:00 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/01 10:17:39 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 	private:
 		const std::string	_name;
 		bool				_isSigned;
 		const int			_gradeToSign;
 		const int			_gradeToExec;
+		
 	public:
 		/* canonical form */
 		Form();
@@ -32,19 +35,21 @@ class Form {
 
 		/* getters */
 		const std::string	getName() const;
-		bool				getIsSigned() const;
-		const int			getGradeToSign() const;
-		const int			getGradeToExec() const;
+		bool		getIsSigned() const;
+		int			getGradeToSign() const;
+		int			getGradeToExec() const;
 
 		/* member functions */
-		bool	beSigned(const Bureaucrat &bInst);
-		void	signForm();
+		void	beSigned(const Bureaucrat &bInst);
 
 		/* exceptions class's methode overriding */
 		class GradeTooHighException : public std::exception {
 			virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class AlreadySigned : public std::exception {
 			virtual const char* what() const throw();
 		};
 };

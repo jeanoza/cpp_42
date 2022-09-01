@@ -25,6 +25,9 @@
 # endif
 
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -46,6 +49,7 @@ class Bureaucrat {
 		/* member functions */
 		void	incrementGrade();
 		void	decrementGrade();
+		void	signForm(Form &inst);
 		
 		/* exceptions class's methode overriding */
 		class GradeTooHighException : public std::exception {
