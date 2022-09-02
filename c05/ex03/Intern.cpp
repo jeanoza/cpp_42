@@ -6,13 +6,21 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 16:52:45 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/02 18:11:12 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 18:20:58 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-
+static Form *makeShrubberyCreationForm(const std::string target) {
+	return new ShrubberyCreationForm(target);
+}
+static Form *makePresidentialPardonForm(const std::string target) {
+	return new PresidentialPardonForm(target);
+}
+static Form *makeRobotomyRequestForm(const std::string target) {
+	return new RobotomyRequestForm(target);
+}
 
 Intern::Intern() {
 	std::cout << MAG << "Intern::default constructor\n" << DFT;
@@ -28,16 +36,6 @@ Intern &Intern::operator=(const Intern &rhs) {
 	(void)rhs;
 	std::cout << MAG << "Intern::copy assignment\n" << DFT;
 	return (*this);
-}
-
-static Form *makeShrubberyCreationForm(const std::string target) {
-	return new ShrubberyCreationForm(target);
-}
-static Form *makePresidentialPardonForm(const std::string target) {
-	return new PresidentialPardonForm(target);
-}
-static Form *makeRobotomyRequestForm(const std::string target) {
-	return new RobotomyRequestForm(target);
 }
 
 const char* Intern::NoExistForm::what() const throw() {

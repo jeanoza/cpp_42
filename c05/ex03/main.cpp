@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/02 18:17:59 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 18:21:27 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main(void) {
 		}
 	}
 	{
-		std::cout << "\n\n= = = = = TEST mandatory 2-3: Execute - PresidentialPardonForm = = = = =\n";
+		std::cout << "\n\n= = = = = TEST mandatory 2-3: Execute - PresidentialPardonForm - fail case = = = = =\n";
 		
 		Intern a;
 		try {
