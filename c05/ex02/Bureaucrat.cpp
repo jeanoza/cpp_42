@@ -70,7 +70,7 @@ void	Bureaucrat::executeForm(Form const &inst){
 				  << " executed " << inst.getName() << DFT << std::endl;
 	} catch (std::exception &e) {
 		std::cout << RED << _name
-				  << " couldn't sign " << inst.getName()
+				  << " couldn't execute " << inst.getName()
 				  <<" because " << e.what() << DFT << std::endl;
 	}
 }

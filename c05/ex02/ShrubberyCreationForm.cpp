@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:00:45 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/02 15:20:11 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 16:27:39 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &inst)
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << GRN << "Shrubbery::destructor\n" << DFT;
 }
+// ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
+// 	Form::operator=(rhs);
+// 	_target = rhs.getTarget();
+// 	std::cout << GRN << "Shrubbery::copy assignment\n" << DFT;
+// 	return *this;
+// }
 
 /* getters */
 std::string ShrubberyCreationForm::getTarget() const {
@@ -62,7 +68,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bInst) const{
 
 /* operator overloading */
 std::ostream &operator<<(std::ostream &o, const ShrubberyCreationForm &rhs) {
-	o << "\nForm[ " << rhs.getName() << " ]\n- status: " << rhs.getIsSigned()
+	o << "\nForm[ " << rhs.getName() << " ]"
+		<< "\n- status: " << rhs.getIsSigned()
 		<< "\n- grade to sign: " << rhs.getGradeToSign()
 		<< "\n- grade to exec: " << rhs.getGradeToExec()
 		<< "\n- target: " << rhs.getTarget()
