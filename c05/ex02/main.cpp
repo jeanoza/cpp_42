@@ -6,69 +6,58 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 11:37:09 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 15:17:28 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void) {
 	{
-		std::cout << "\n\n= = = = = TEST mandatory 1: Form validation = = = = =\n";
-		try {
-			Form a("hello", 1, 10);
-			std::cout << a << std::endl;
-			Form b("world", 0, 150);
-			std::cout << b << std::endl;
-		} catch (std::exception &e) {
-			std::cout << RED << e.what() << DFT << std::endl;
-		}
+		std::cout << "\n\n= = = = = TEST mandatory 1: ShrubberyCreationForm (static) = = = = =\n";
+		ShrubberyCreationForm a("test static");
+		ShrubberyCreationForm b = a;
+		std::cout << a;
+		std::cout << b;
 	}
 	{
-		std::cout << "\n\n= = = = = TEST mandatory 2: Copy Form = = = = =\n";
-		try {
-			Form a("hello", 42, 10);
-			Form b = a;
-			std::cout << a << std::endl;
-			std::cout << b << std::endl;
-		} catch (std::exception &e) {
-			std::cout << RED << e.what() << DFT << std::endl;
-		}
+		std::cout << "\n\n= = = = = TEST mandatory 2: ShrubberyCreationForm (dynamic) = = = = =\n";
+		ShrubberyCreationForm *a = new ShrubberyCreationForm("test dynamic");
+		ShrubberyCreationForm *b = new ShrubberyCreationForm(*a); // deep copy
+		ShrubberyCreationForm *c = b; // shallow copy thus do not delete c
+		std::cout << *a;
+		std::cout << *b;
+		std::cout << *c;
+
+		delete a;
+		delete b;
 	}
 	{
-		std::cout << "\n\n= = = = = TEST mandatory 3: Sign Form = = = = =\n";
+		std::cout << "\n\n= = = = = TEST mandatory 3: ShrubberyCreationForm (execute success) = = = = =\n";
 		try {
-			Bureaucrat jean("Jean", 10);
-			Bureaucrat paul("Paul", 43);
-			Form a("hello", 42, 10);
-			Form b("world", 42, 10);
+			ShrubberyCreationForm a("test_exec_success");
+			Bureaucrat jean("Jean", 137);
 			std::cout << jean << std::endl;
 			std::cout << a << std::endl;
-			std::cout << b << std::endl;
-
 			jean.signForm(a);
-			std::cout <<std::endl;
-			paul.signForm(b);
-			std::cout <<std::endl;
-		} catch (std::exception &e) {
-			std::cout << RED << e.what() << DFT << std::endl;
+			jean.executeForm(a);
+		} catch(std::exception &e) {
+			std::cout << e.what() << std::endl;
 		}
 	}
 	{
-		std::cout << "\n\n= = = = = TEST : Already signed = = = = =\n";
+		std::cout << "\n\n= = = = = TEST mandatory 3: ShrubberyCreationForm (execute fail) = = = = =\n";
 		try {
-			Bureaucrat jean("Jean", 10);
-			Form a("hello", 42, 10);
-			std::cout << jean << std::endl;
+			ShrubberyCreationForm a("test_exec_fail");
+			Bureaucrat paul("Paul", 145);
+			std::cout << paul << std::endl;
 			std::cout << a << std::endl;
-
-			jean.signForm(a);
-			std::cout <<std::endl;
-			jean.signForm(a);
-			std::cout <<std::endl;
-		} catch (std::exception &e) {
-			std::cout << RED << e.what() << DFT << std::endl;
+			paul.signForm(a);
+			paul.executeForm(a);// exception because Paul has not enough grade to execute ShrubberyForm
+		} catch(std::exception &e) {
+			std::cout << e.what() << std::endl;
 		}
 	}
 	return 0;

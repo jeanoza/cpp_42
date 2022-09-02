@@ -55,7 +55,7 @@ void Bureaucrat::decrementGrade() {
 void	Bureaucrat::signForm(Form &inst) {
 	try {
 		inst.beSigned(*this);
-		std::cout << MAG << _name
+		std::cout << CYN << _name
 				  << " signed " << inst.getName() << DFT << std::endl;
 	} catch (std::exception &e) {
 		std::cout << RED << _name
@@ -63,7 +63,17 @@ void	Bureaucrat::signForm(Form &inst) {
 				  <<" because " << e.what() << DFT << std::endl;
 	}
 }
-
+void	Bureaucrat::executeForm(Form const &inst){
+	try {
+		inst.execute(*this);
+		std::cout << CYN << _name
+				  << " executed " << inst.getName() << DFT << std::endl;
+	} catch (std::exception &e) {
+		std::cout << RED << _name
+				  << " couldn't sign " << inst.getName()
+				  <<" because " << e.what() << DFT << std::endl;
+	}
+}
 
 
 /* exceptions class's methode overriding */

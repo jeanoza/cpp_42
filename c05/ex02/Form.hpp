@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:08:23 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 12:07:07 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 15:10:19 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include <fstream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -30,7 +31,7 @@ class Form {
 		Form();
 		Form(const std::string name, const int gradeToSign, const int gradeToExec);
 		Form(const Form &inst);
-		~Form();
+		virtual ~Form();
 		Form	&operator=(const Form &rhs);
 
 		/* getters */
@@ -40,8 +41,8 @@ class Form {
 		int			getGradeToExec() const;
 
 		/* member functions */
-		void	beSigned(const Bureaucrat &bInst);
-		void	execute(const Bureaucrat &bInst);
+		void			beSigned(const Bureaucrat &bInst);
+		virtual void	execute(const Bureaucrat &bInst) const = 0;
 
 		/* exceptions class's methode overriding */
 		class GradeTooHighException : public std::exception {
@@ -54,6 +55,12 @@ class Form {
 			virtual const char* what() const throw();
 		};
 		class NotSigned : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class CreateFileFailed : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class ReadFileFailed : public std::exception {
 			virtual const char* what() const throw();
 		};
 };

@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:03:36 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 11:55:57 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 15:10:30 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,6 @@ void Form::beSigned(const Bureaucrat &bInst) {
 	if (bInst.getGrade() > _gradeToSign) throw Form::GradeTooLowException();
 	_isSigned = true;
 }
-void Form::execute(const Bureaucrat &bInst) {
-	if (!_isSigned) throw Form::NotSigned();
-	if (bInst.getGrade() > _gradeToExec) throw Form::GradeTooLowException();
-}
 
 /* exceptions class's methode overriding */
 const char *Form::GradeTooHighException::what() const throw() {
@@ -77,7 +73,12 @@ const char *Form::AlreadySigned::what() const throw() {
 const char *Form::NotSigned::what() const throw() {
 	return "Form::NotSigned";
 }
-
+const char *Form::CreateFileFailed::what() const throw() {
+	return "Form::CreateFileFailed";
+}
+const char *Form::ReadFileFailed::what() const throw() {
+	return "Form::ReadFileFailed";
+}
 
 /* operator overloading */
 std::ostream &operator<<(std::ostream &o, const Form &rhs) {

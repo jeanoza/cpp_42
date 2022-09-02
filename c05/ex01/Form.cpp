@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 18:03:36 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/01 10:18:35 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/02 11:30:26 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	Form::getGradeToExec() const {
 
 /* member functions */
 void Form::beSigned(const Bureaucrat &bInst) {
-	//FIXME: exception or return ?
 	if (_isSigned) throw Form::AlreadySigned();
 	if (bInst.getGrade() > _gradeToSign) throw Form::GradeTooLowException();
 	_isSigned = true;

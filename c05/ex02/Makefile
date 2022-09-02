@@ -4,9 +4,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC =  Bureaucrat.hpp Form.hpp
+INC =  Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
