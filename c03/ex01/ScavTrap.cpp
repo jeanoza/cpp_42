@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:13:54 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/26 10:35:00 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/03 09:03:15 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
 }
 ScavTrap::ScavTrap(const ScavTrap &inst) : ClapTrap(inst) {
 	std::cout << CYN << "ScavTrap::Copy constructor called"<< DFT;
+	this->_keeperMode = inst._keeperMode;
 	return ;
 }
 ScavTrap::~ScavTrap(void) {
@@ -40,6 +41,7 @@ ScavTrap::~ScavTrap(void) {
 ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs) {
 	std::cout << CYN << "ScavTrap: Operator assignation" << DFT;
 	ClapTrap::operator=(rhs);
+	this->_keeperMode = rhs._keeperMode;
 	return (*this);
 }
 void	ScavTrap::attack(const std::string &target) {
@@ -58,12 +60,12 @@ void	ScavTrap::guardGate(void) {
 
 /* ostream overloading */
 std::ostream &operator<<(std::ostream &o, const ScavTrap &rhs) {
+	
 	o << CYN << "\nState of ScavTrap: " << rhs.getName()
 	  << "\n _hitPoints: " << rhs.getHitPoints()
 	  << "\n _energyPoints: " << rhs.getEnergyPoints()
 	  << "\n _attackDamage: " << rhs.getAttackDamage()
 	  << "\n _keeperMode: " << rhs.getKeeperMode()
 	  << DFT << "\n\n";
-
 	return o;
 }
