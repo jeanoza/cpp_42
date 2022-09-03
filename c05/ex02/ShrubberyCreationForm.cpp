@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:00:45 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/02 16:27:39 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/03 11:37:00 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bInst) const{
 	if (!_isSigned) throw ShrubberyCreationForm::NotSigned();
 	if (bInst.getGrade() > _gradeToExec) throw ShrubberyCreationForm::GradeTooLowException();
 
-	std::ofstream ofs(_target + "_shrubbery");
+	std::string filename = _target + "_shrubbery";
+	std::ofstream ofs(filename.c_str());
 	
 	// Protection when create file failed
     if (ofs.fail())  throw ShrubberyCreationForm::CreateFileFailed();
