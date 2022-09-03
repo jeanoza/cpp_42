@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 11:55:22 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/29 17:53:42 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/03 11:26:37 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character : public ICharacter {
 		Character();
 		Character(const std::string name);
 		Character(const Character &inst);
-		~Character();
+		virtual ~Character();
 		Character &operator=(const Character &rhs);
 
 		const std::string &getName() const;

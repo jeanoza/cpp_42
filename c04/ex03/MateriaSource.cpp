@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:57:16 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/08/30 16:36:56 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/03 11:28:44 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void		MateriaSource::learnMateria(AMateria* inst) {
 	int currentIndex = 0;
 
 	while (this->_list[currentIndex]) ++currentIndex;
+
+	std::cout << currentIndex << std::endl;
 	if (currentIndex < LIST_MAX_LENGTH) {
 		this->_list[currentIndex] = inst->clone();
 	}
