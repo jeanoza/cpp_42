@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 12:03:38 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 12:17:50 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ int main(int ac, char **av) {
 	float _f;
 	double _d;
 
-	if (ac == 2)
-	{
+	if (ac == 2) {
 		char *_end;
 		std::string _str = av[1];
 		long long int _num = std::strtoll(_str.c_str(), &_end, 0);
@@ -84,40 +83,40 @@ int main(int ac, char **av) {
 
 		/* char */
 		try {
-			std::cout << "char: ";
+			std::cout << YEL << "char: ";
 			_c = testChar(_str, _num);
-			std::cout << _c  << std::endl;
+			std::cout << _c  << DFT << std::endl;
 		} catch (std::exception &e) {
-			std::cout << e.what() << std::endl;
+			std::cout << e.what() << DFT << std::endl;
 		}
 
 		/* int */
 		try {
-			std::cout << "int: ";
+			std::cout << BLU << "int: ";
 			_i = testInt(_str, _num);
-			std::cout << _i << std::endl;
+			std::cout << _i << DFT << std::endl;
 		} catch (std::exception &e) {
-			std::cout << e.what() << std::endl;
+			std::cout << e.what() << DFT << std::endl;
 		}
 
 		/* float */
 		try {
-			std::cout << "float: ";
+			std::cout << MAG << "float: ";
 			_f = testFloat(_str, _num_d);
-			std::cout << _f << (_f == _i ? ".0f" : "f") << std::endl;
+			std::cout << _f << (_f == _i ? ".0f" : "f") << DFT << std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what();
-			std::cout << std::endl;
+			std::cout << DFT << std::endl;
 		}
 
 		/* double */
 		try {
-			std::cout << "double: ";
+			std::cout << GRN << "double: ";
 			_d = testDouble(_str, _num_d);
-			std::cout << _d << (_d == _i ? ".0" : "" )<< std::endl;
+			std::cout << _d << (_d == _i ? ".0" : "" )<< DFT << std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what();
-			std::cout << std::endl;
+			std::cout << DFT << std::endl;
 		}
 	}
 	return 0;
