@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 14:09:25 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 14:18:27 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,15 @@
 class Base {
 	public:
 		virtual ~Base(){};
-
-		virtual Base *generate(void);
-		virtual void identify(Base *p);
-		virtual void identify(Base &p);
-
 };
 
 class A : public Base { };
 class B : public Base { };
-class B : public Base { };
+class C : public Base { };
 
+
+Base *generate(void);
+void identify(Base *p);
+void identify(Base &p);
 
 #endif
