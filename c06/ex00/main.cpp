@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 11:39:59 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 11:49:53 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,45 +23,23 @@ const char *ImpossibleException::what() const throw() {
 
 //FIXME: overflow catch on char
 
-char	testChar(const char *input) {
-	char *_end;
-
-	long long int _num = std::strtoll(input, &_end, 0);
-
-
-	std::string str = input;
-	
-
-	if (str == "nan" || str == "nanf" || (_num < -128 || _num > 127))
+char	testChar(const std::string str, long long int num) {
+	if (str == "nan" || str == "nanf" || (num < -128 || num > 127))
 		throw ImpossibleException();
 	// //non display detect
-	if (_num < 32 || _num > 126)
+	if (num < 32 || num > 126)
 		throw NonDisplayableException();
 
-	return static_cast<char>(_num);
+	return static_cast<char>(num);
 }
 
-int		testInt(const char *input) {
-
-	char *_end;
-
-	long long int _num = std::strtoll(input, &_end, 0);
-	std::string str = input;
-
-
-	if (str == "nan" || str == "nanf" || _num > std::numeric_limits<int>::max() || _num < std::numeric_limits<int>::min())
+int		testInt(const std::string str, long long int num) {
+	if (str == "nan" || str == "nanf" || num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min())
 		throw ImpossibleException();
-	return static_cast<int>(_num);
+	return static_cast<int>(num);
 }
 
-float	testFloat(const char *input) {
-	char *_end;
-
-	// long long int _num = std::strtoll(input, &_end, 0);
-	long double _num_d = std::strtold(input, &_end);
-	// int _num = std::atoi(input);
-	// float _num_f = std::atof(input);
-	std::string str = input;
+float	testFloat(const std::string str, long double num_d) {
 
 	// manage infinity
 	if (str == "inf" || str == "inff") return std::numeric_limits<float>::infinity();
@@ -69,34 +47,21 @@ float	testFloat(const char *input) {
 	//nan
 	if (str == "nan" || str == "nanf") return std::numeric_limits<float>::quiet_NaN();
 	//overflow
-	// if (str != std::to_string(_num) && static_cast<int>(_num_d) != _num)
-	if (_num_d > std::numeric_limits<float>::max() || _num_d < std::numeric_limits<float>::min())
+	if (str != "0" && (num_d > std::numeric_limits<float>::max() || num_d < std::numeric_limits<float>::min()))
 		throw ImpossibleException();
-	return static_cast<float>(_num_d);
+	return static_cast<float>(num_d);
 }
 
-double	testDouble(const char *input) {
-	char *_end;
-
-	// long long int _num = std::strtoll(input, &_end, 0);
-	long double _num_d = std::strtold(input, &_end);
-
-	std::string str = input;
-
+double	testDouble(const std::string str, long double num_d) {
 	// manage infinity
 	if (str == "inf" || str == "inff") return std::numeric_limits<double>::infinity();
 	if (str == "-inf" || str == "-inff") return (-1) * std::numeric_limits<double>::infinity();
 	//nan
 	if (str == "nan" || str == "nanf") return std::numeric_limits<double>::quiet_NaN();
 	//overflow
-	// if (str != std::to_string(_num) && static_cast<int>(_num_d) != _num)
-	// 	throw ImpossibleException();
-
-	//overflow
-	// if (str != std::to_string(_num) && static_cast<int>(_num_d) != _num)
-	if (_num_d > std::numeric_limits<float>::max() || _num_d < std::numeric_limits<float>::min())
+	if (str != "0" && (num_d > std::numeric_limits<double>::max() || num_d < std::numeric_limits<double>::min()))
 		throw ImpossibleException();
-	return static_cast<double>(_num_d);
+	return static_cast<double>(num_d);
 }
 
 int main(int ac, char **av) {
@@ -106,15 +71,19 @@ int main(int ac, char **av) {
 	float _f;
 	double _d;
 
-
 	if (ac == 2)
 	{
-		// std::cout << std::setprecision(20);
+		char *_end;
+		std::string _str = av[1];
+		long long int _num = std::strtoll(_str.c_str(), &_end, 0);
+		long double _num_d = std::strtold(_str.c_str(), &_end);
+
 		
+
 		/* char */
 		try {
 			std::cout << "char: ";
-			_c = testChar(av[1]);
+			_c = testChar(_str, _num);
 			std::cout << _c  << std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what() << std::endl;
@@ -123,7 +92,7 @@ int main(int ac, char **av) {
 		/* int */
 		try {
 			std::cout << "int: ";
-			_i = testInt(av[1]);
+			_i = testInt(_str, _num);
 			std::cout << _i << std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what() << std::endl;
@@ -132,7 +101,7 @@ int main(int ac, char **av) {
 		/* float */
 		try {
 			std::cout << "float: ";
-			_f = testFloat(av[1]);
+			_f = testFloat(_str, _num_d);
 			std::cout << _f << (_f == _i ? ".0f" : "f") << std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what();
@@ -142,7 +111,7 @@ int main(int ac, char **av) {
 		/* double */
 		try {
 			std::cout << "double: ";
-			_d = testDouble(av[1]);
+			_d = testDouble(_str, _num_d);
 			std::cout << _d << (_d == _i ? ".0" : "" )<< std::endl;
 		} catch (std::exception &e) {
 			std::cout << e.what();
@@ -159,3 +128,6 @@ int main(int ac, char **av) {
 	//overflow with atoi - itoa
 	// if (str != std::to_string(_num) && static_cast<int>(_num_d) != _num)
 	// 	throw ImpossibleException();
+
+
+	//exemple ./convert 123421.123412341
