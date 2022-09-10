@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/09 19:01:06 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 10:58:48 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 
 # include <iostream>
 # include <string>
+// # include <cstdlib>
+# include <limits>
+#include <iomanip>
 
 class NonDisplayableException : public std::exception {
 	virtual const char* what() const throw();
