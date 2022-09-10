@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 11:49:53 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 11:51:43 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ const char *ImpossibleException::what() const throw() {
 }
 
 
-//FIXME: overflow catch on char
-
 char	testChar(const std::string str, long long int num) {
-	if (str == "nan" || str == "nanf" || (num < -128 || num > 127))
+	if (str == "nan" || str == "nanf" || (num > std::numeric_limits<char>::max() || num < std::numeric_limits<char>::min()))
 		throw ImpossibleException();
 	// //non display detect
 	if (num < 32 || num > 126)
