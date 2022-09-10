@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 11:51:43 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 12:02:47 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,11 @@ int main(int ac, char **av) {
 		long long int _num = std::strtoll(_str.c_str(), &_end, 0);
 		long double _num_d = std::strtold(_str.c_str(), &_end);
 
-		
+		/* to prevent output mistake by std::cout
+		 * test with printf after remove this precision
+		 * exemple ./convert 123421.123412341
+		 */
+		std::cout.precision(std::numeric_limits<double>::max_digits10);
 
 		/* char */
 		try {
@@ -127,5 +131,3 @@ int main(int ac, char **av) {
 	// if (str != std::to_string(_num) && static_cast<int>(_num_d) != _num)
 	// 	throw ImpossibleException();
 
-
-	//exemple ./convert 123421.123412341
