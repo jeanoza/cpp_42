@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 12:17:50 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/10 15:07:38 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ int main(int ac, char **av) {
 	int _i;
 	float _f;
 	double _d;
+
+	double d2 = std::stod("2020.0");
+	(void)d2;
 
 	if (ac == 2) {
 		char *_end;
