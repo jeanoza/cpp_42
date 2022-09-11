@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/11 11:38:19 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/11 11:52:26 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,35 @@
 
 template<typename T>
 void swap(T &x, T &y) {
-	std::cout << GRN << "swap(" << x << ", " << y << ")\n" << DFT;
 	T tmp = x;
 	x = y;
 	y = tmp;
 }
 template<typename T>
 const T &max(const T &x, const T &y) {
-	std::cout << MAG << "max(" << x << ", " << y << "): " << DFT;
 	return x > y ? x : y; 
 }
 template<typename T>
 const T &min(const T &x, const T &y) {
-	std::cout << YEL << "min(" << x << ", " << y << "): " << DFT;
 	return x < y ? x : y;
 }
 
 template<typename T, typename U>
-const std::string	swap(T &x, U &y) {
-	std::cout << GRN << "swap(" << x << ", " << y << "): " << DFT;
-	std::string msg = RED;
-	msg += "Parameter's type is DIFFERENT!!";
-	msg += DFT;
-	return msg;
+void	swap(T &x, U &y) {
+	(void)x;
+	(void)y;
+	std::cout << "swap::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
 }
 template<typename T, typename U>
-const std::string	max(const T &x, const U &y) {
-	std::cout << MAG << "max(" << x << ", " << y << "): " << DFT;
-	std::string msg = RED;
-	msg += "Parameter's type is DIFFERENT!!";
-	msg += DFT;
-	return msg;
+void	max(const T &x, const U &y) {
+	(void)x;
+	(void)y;
+	std::cout << "max::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
 }
 template<typename T, typename U>
-const std::string	min(const T &x, const U &y) {
-	std::cout << YEL << "min(" << x << ", " << y << "): " << DFT;
-	std::string msg = RED;
-	msg += "Parameter's type is DIFFERENT!!";
-	msg += DFT;
-	return msg;
+void	min(const T &x, const U &y) {
+	(void)x;
+	(void)y;
+	std::cout << "min::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
 }
 #endif
