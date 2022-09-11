@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/11 12:12:25 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/11 15:05:27 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -28,39 +28,18 @@
 # include <iostream>
 # include <string>
 # include <limits>
-#include <iomanip>
+# include <iomanip>
+
+# define TEST_SIZE 5
 
 template<typename T>
-void swap(T &x, T &y) {
-	T tmp = x;
-	x = y;
-	y = tmp;
-}
-template<typename T>
-const T &max(const T &x, const T &y) {
-	return x > y ? x : y; 
-}
-template<typename T>
-const T &min(const T &x, const T &y) {
-	return x < y ? x : y;
+void iter(T *array, std::size_t size, void (*f)(T &)){
+	for (std::size_t i = 0; i < size; ++i) f(array[i]);
 }
 
-template<typename T, typename U>
-void	swap(T &x, U &y) {
-	(void)x;
-	(void)y;
-	std::cout << "swap::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
+template<typename T>
+void print(T &num) {
+	std::cout << num << std::endl;
 }
-template<typename T, typename U>
-void	max(const T &x, const U &y) {
-	(void)x;
-	(void)y;
-	std::cout << "max::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
-}
-template<typename T, typename U>
-void	min(const T &x, const U &y) {
-	(void)x;
-	(void)y;
-	std::cout << "min::" << RED << "Parameter's type is DIFFERENT!!" << DFT << std::endl;
-}
+
 #endif
