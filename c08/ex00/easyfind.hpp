@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/14 09:09:13 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/14 09:27:15 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 # include <iostream>
 # include <string>
 # include <limits>
-#include <iomanip>
-#include <vector>
-#include <list>
+# include <iomanip>
+# include <vector>
+# include <list>
 
 template<typename T>
 int findeasy(T &list, int to_find) {
