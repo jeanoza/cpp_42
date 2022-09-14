@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 12:16:14 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/12 17:50:09 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 # include <iostream>
 # include <string>
 # include <limits>
-#include <iomanip>
+# include <iomanip>
+# include <cstdlib>  
 
 class NonDisplayableException : public std::exception {
 	virtual const char* what() const throw();

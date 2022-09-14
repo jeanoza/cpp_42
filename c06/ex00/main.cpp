@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 11:51:06 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/10 15:07:38 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/12 17:58:47 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ int main(int ac, char **av) {
 	float _f;
 	double _d;
 
-	double d2 = std::stod("2020.0");
-	(void)d2;
+
 
 	if (ac == 2) {
 		char *_end;
@@ -82,7 +81,8 @@ int main(int ac, char **av) {
 		 * test with printf after remove this precision
 		 * exemple ./convert 123421.123412341
 		 */
-		std::cout.precision(std::numeric_limits<double>::max_digits10);
+		std::cout.precision(std::numeric_limits<double>::digits10);
+
 
 		/* char */
 		try {
