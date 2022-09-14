@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/14 18:26:49 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/14 18:23:43 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -32,14 +32,16 @@
 # include <vector>
 # include <list>
 
-template<typename T>
-int findeasy(T &list, int to_find) {
-	typename T::const_iterator ite = list.end();
+// template<typename T>
+class Span {
+	private:
+		unsigned int _n;
+		
+	public:
+		Span();
+		Span(unsigned int n);
+		~Span();
+};
 
-	for(typename T::const_iterator it = list.begin(); it != ite; *it++) {
-		if (*it == to_find)
-			return *it;
-	}
-	throw std::invalid_argument("invalid_argument::no_found_error");
-}
+
 #endif
