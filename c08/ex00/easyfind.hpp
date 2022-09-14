@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/14 08:50:02 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/14 09:09:13 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -28,18 +28,19 @@
 # include <iostream>
 # include <string>
 # include <limits>
-# include <iomanip>
-
-# define TEST_SIZE 5
-
-template<typename T>
-void iter(T *array, std::size_t size, void (*f)(T &)){
-	for (std::size_t i = 0; i < size; ++i) f(array[i]);
-}
+#include <iomanip>
+#include <vector>
+#include <list>
 
 template<typename T>
-void print(T &num) {
-	std::cout << num << std::endl;
-}
+int findeasy(T &list, int to_find) {
+	typename T::const_iterator it = list.begin();
+	typename T::const_iterator ite = list.end();
 
+	for(; it != ite; *it++) {
+		if (*it == to_find)
+			return *it;
+	}
+	throw std::invalid_argument("invalid_argument::no_found_error");
+}
 #endif
