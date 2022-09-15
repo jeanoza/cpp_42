@@ -4,9 +4,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-INC =  span.hpp
+INC =  Span.hpp
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

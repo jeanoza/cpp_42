@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/14 18:23:43 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/15 10:31:27 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,38 @@
 # include <vector>
 # include <list>
 
-// template<typename T>
+
+
 class Span {
 	private:
 		unsigned int _n;
+		std::vector<int> _list;
 		
 	public:
 		Span();
 		Span(unsigned int n);
-		~Span();
+		Span(Span &inst);
+		virtual ~Span();
+
+		Span &operator=(const Span &rhs);
+
+		/* member functions */
+		void addNumber(int toAdd);
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
+
+		class RangeException : public std::exception {
+			virtual const char *what() const throw();
+		};
+		class NotEnoughException : public std::exception {
+			virtual const char *what() const throw();
+		};
 };
 
 
 #endif
+
+
+// char * what () {
+//         return "Custom C++ Exception";
+//     }
