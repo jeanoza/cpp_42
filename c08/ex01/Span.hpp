@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/15 10:31:27 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/16 00:17:37 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,13 @@ class Span {
 		Span &operator=(const Span &rhs);
 
 		/* member functions */
-		void addNumber(int toAdd);
+		void 	addNumber(const int toAdd);
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
+		void	addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void	printList();
+
+
 
 		class RangeException : public std::exception {
 			virtual const char *what() const throw();

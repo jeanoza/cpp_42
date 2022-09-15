@@ -6,7 +6,7 @@
 /*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 08:42:49 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/15 11:19:47 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/16 00:36:58 by kyubongchoi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Span::Span(Span &inst) {
 	_list.clear();
 
 	/* insert(position_dst, position_src_start, position_src_end) */
-	_list.insert(_list.begin(), inst._list.begin(), inst._list.end());
+	_list.insert(_list.end(), inst._list.begin(), inst._list.end());
 }
 
 Span::~Span(){}
@@ -34,20 +34,18 @@ Span &Span::operator=(const Span &rhs) {
 	if (this != &rhs) {
 		_n = rhs._n;
 		_list.clear();
-		_list.insert(_list.begin(), rhs._list.begin(), rhs._list.end());
+		_list.insert(_list.end(), rhs._list.begin(), rhs._list.end());
 	}
 	return (*this);
 }
 
 
-void	Span::addNumber(int toAdd) {
+void	Span::addNumber(const int toAdd) {
+	std::cout << "addNumber(" << toAdd << ") called\n";
 	if (_list.size() < _n)
 		_list.push_back(toAdd);
 	else
 		throw Span::RangeException();
-	// std::cout << "\n\n[ addNumber ]\n\n";
-	// std::for_each(_list.begin(), _list.end(), print);
-	// std::cout << ".size():" << _list.size() << std::endl;
 }
 
 unsigned int Span::longestSpan () {
@@ -79,11 +77,22 @@ unsigned int Span::shortestSpan () {
 	}
 	return (res);
 }
+void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	if (end - begin > _n)
+		throw Span::RangeException();
+	_list.insert(_list.end(), begin, end);
+}
 
+void	Span::printList() {
+	std::cout << YEL <<"[ Span->_list ]: { ";
+	for (std::vector<int>::iterator it = _list.begin(); it != _list.end(); ++it)
+		std::cout << *it << ((it + 1 == _list.end()) ? "" : ", ");
+	std::cout << " }" << DFT << std::endl;
+}
 
 
 const char *Span::RangeException::what() const throw(){
-	return "Span::RangeException::cannot add more than _n";
+	return "Span::RangeException::invalid_range";
 }
 const char *Span::NotEnoughException::what() const throw(){
 	return "Span::NotEnoughException::_list.size() < 2";
