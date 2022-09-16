@@ -27,7 +27,8 @@
 
 # include <iostream>
 # include <string>
-// # include <cstdlib>
+# include <cstdlib>
+# include <stdint.h>
 # include <limits>
 #include <iomanip>
 
@@ -36,10 +37,7 @@ struct Data {
 };
 
 uintptr_t serialize(Data* ptr);
-// Elle prend un pointeur et convertit celui-ci vers le type d’entier non-signé uintptr_t.
 Data* deserialize(uintptr_t raw);
-// Elle prend un entier non-signé en paramètre et le convertit en pointeur sur Data.
-// Écrivez un programme pour tester vos fonctions et vous assurer que tout march
 
 
 #endif

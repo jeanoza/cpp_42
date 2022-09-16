@@ -26,9 +26,12 @@
 
 
 # include <iostream>
+# include <cstdlib>
 # include <string>
 # include <limits>
 # include <iomanip>
+# include <typeinfo>
+
 
 class Base {
 	public:
