@@ -29,6 +29,7 @@
 # include <string>
 # include <limits>
 # include <iomanip>
+# include <cstdlib>
 
 template<typename T>
 class Array {
