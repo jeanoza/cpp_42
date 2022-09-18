@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyubongchoi <kyubongchoi@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kychoi <kychoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:07:46 by kyubongchoi       #+#    #+#             */
-/*   Updated: 2022/09/15 08:30:10 by kyubongchoi      ###   ########.fr       */
+/*   Updated: 2022/09/18 16:50:11 by kychoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,14 @@
 # include <limits>
 # include <iomanip>
 # include <vector>
+# include <algorithm>
 # include <list>
 
 template<typename T>
 int findeasy(T &list, int to_find) {
-	typename T::const_iterator ite = list.end();
-
-	for(typename T::const_iterator it = list.begin(); it != ite; *it++) {
-		if (*it == to_find)
-			return *it;
-	}
-	throw std::invalid_argument("invalid_argument::no_found_error");
+	typename T::const_iterator it = std::find(list.begin(), list.end(), to_find);
+	if (it == list.end())
+		throw std::invalid_argument("invalid_argument::no_found_error");
+	return (*it);
 }
 #endif
