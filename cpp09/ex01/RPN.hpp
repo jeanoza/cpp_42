@@ -12,17 +12,23 @@ class RPN {
 
 		RPN();
 
+		/* private member functions*/
+		bool isOperator(char c);
+		bool isNumeric(char c);
+
 	public:
 		RPN(const std::string &input);
 		RPN(const RPN &inst);
 		~RPN();
 		RPN &operator=(const RPN &rhs);
 
+		/* getters */
 		const std::string getInput() const;
 		std::stack<int> getNumbers() const;
 		std::stack<char> getOperators() const;
 		int getResult() const;
 
+		/* member functions */
 		void parse();
 		void calculate();
 };
