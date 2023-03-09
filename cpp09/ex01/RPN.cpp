@@ -53,9 +53,31 @@ void RPN::parse() {
 	for(std::string::const_iterator it = _input.begin(); it != _input.end(); ++it) {
 		char current = *it;
 
-		//std::cout << current << std::endl;
 		if (isNumeric(current)) _numbers.push(static_cast<int>(current) - 48);
 		else if (isOperator(current)) _operators.push(current);
+	}
+}
+
+void RPN::calculate() {
+	//std::cout << _numbers.top() << std::endl;
+	while (_numbers.top() != NULL) {
+		std::cout << *this << std::endl;
+
+		int res;
+		int num1 = _numbers.top();
+		_numbers.pop();
+		int num2 = _numbers.top();
+		_numbers.pop();
+		char op = _operators.top();
+		_operators.pop();
+		if (op == '+') res = num1 + num2;
+		else if (op == '-') res = num1 - num2;
+		else if (op == '*') res = num1 * num2;
+		else if (op == '/') res = num1 / num2;
+		else {
+			std::cout << "HERE" <<std::endl;
+		}
+		_numbers.push(res);
 	}
 }
 
