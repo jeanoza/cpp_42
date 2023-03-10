@@ -1,6 +1,4 @@
 #include <iostream>
-#include <stack>
-#include <string>
 #include "RPN.hpp"
 
 int main(int ac, char **av) {
