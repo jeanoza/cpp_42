@@ -1,39 +1,13 @@
 #include "RPN.hpp"
 
 RPN::RPN() {}
-
-RPN::RPN(const std::string &input) :_input(input){
-
-}
-RPN::RPN(const RPN &inst): _input(inst._input) {
-	_numbers = inst.getNumbers();
-	_operators = inst.getOperators();
-	_result = inst.getResult();
-}
-
+RPN::RPN(const std::string &input) :_input(input){ }
+RPN::RPN(const RPN &inst): _input(inst._input) { }
 RPN::~RPN(){}
 
 RPN &RPN::operator=(const RPN &rhs) {
-	_numbers = rhs.getNumbers();
-	_operators = rhs.getOperators();
-	_result = rhs.getResult();
-
+	_input = rhs._input;
 	return (*this);
-}
-
-/* getters */
-const std::string RPN::getInput() const{
-	return _input;
-}
-
-std::stack<int> RPN::getNumbers() const {
-	return _numbers;
-}
-std::stack<char> RPN::getOperators() const{
-	return _operators;
-}
-int RPN::getResult() const{
-	return _result;
 }
 
 /* member functions */
@@ -49,66 +23,39 @@ bool RPN::isNumeric(char c) {
 	return false;
 }
 
-void RPN::parse() {
-	for(std::string::const_iterator it = _input.begin(); it != _input.end(); ++it) {
-		char current = *it;
 
-		if (isNumeric(current)) _numbers.push(static_cast<int>(current) - 48);
-		else if (isOperator(current)) _operators.push(current);
-	}
+int RPN::calculate() {
+    std::stack<int> stack;
+    
+    for (std::string::const_iterator it = _input.begin(); it != _input.end(); ++it) {
+				char c = *it;
+        if (isNumeric(c)) {
+            stack.push(c - '0'); // convert char to int
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+						if (stack.size() != 2) throw RPN::WrongOrderException();
+            int num2 = stack.top();
+						stack.pop();
+            int num1 = stack.top();
+						stack.pop();
+            int res;
+            
+            switch(c) {
+                case '+': res = num1 + num2; break;
+                case '-': res = num1 - num2; break;
+                case '*': res = num1 * num2; break;
+                case '/': res = num1 / num2; break;
+            }
+            stack.push(res);
+        } else if (c != ' ') throw RPN::WrongCharException();
+    }
+    
+    return stack.top();
 }
 
-void RPN::calculate() {
-	//std::cout << _numbers.top() << std::endl;
-	while (_numbers.top() != NULL) {
-		std::cout << *this << std::endl;
-
-		int res;
-		int num1 = _numbers.top();
-		_numbers.pop();
-		int num2 = _numbers.top();
-		_numbers.pop();
-		char op = _operators.top();
-		_operators.pop();
-		if (op == '+') res = num1 + num2;
-		else if (op == '-') res = num1 - num2;
-		else if (op == '*') res = num1 * num2;
-		else if (op == '/') res = num1 / num2;
-		else {
-			std::cout << "HERE" <<std::endl;
-		}
-		_numbers.push(res);
-	}
+const char *RPN::WrongOrderException::what() const throw() {
+	return "RPN::WrongOrderException";
 }
-
-
-std::ostream &operator<<(std::ostream &o, RPN const &rhs) {
-	o << "input: " << rhs.getInput() << std::endl;
-
-	/* numbers */
-	std::stack<int> numbers = rhs.getNumbers();
-	o << "numbers: [";
-	while (!numbers.empty()) {
-		int num = numbers.top();
-		o << num;
-		numbers.pop();
-		if (!numbers.empty()) {
-			o << ", ";
-		}
-	}
-	o << "]" << std::endl;
-
-	/* operators */
-	std::stack<char> operators = rhs.getOperators();
-	o << "operators: [";
-	while (!operators.empty()) {
-		char oper = operators.top();
-		o << oper;
-		operators.pop();
-		if (!operators.empty()) {
-			o << ", ";
-		}
-	}
-	o << "]" << std::endl;
-	return o;
+const char *RPN::WrongCharException::what() const throw() {
+	return "RPN::WrongCharException";
 }
+// std::ostream &operator<<(std::ostream &o, RPN const &rhs) { }
