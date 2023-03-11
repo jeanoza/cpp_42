@@ -21,8 +21,9 @@ bool parse(std::vector<int> &array, int ac, char **av) {
 void printVector(const std::vector<int> &array) {
 	int size = array.size();
 	for(int i = 0; i < size; ++i) {
-		std::cout << array[i] << ((i == size - 1) ? "\n" : " ");
+		std::cout << array[i] << " ";
 	}
+	std::cout << std::endl;
 }
 
 
