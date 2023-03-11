@@ -68,5 +68,6 @@ int main(int ac, char **av) {
 	std::cout << "Time to process a range of "
 		<< countElement << " elements with " << YEL << "<std::list>   :\t"
 		<< tList << " ms" << DFT << std::endl;
+
 	return 0;
 }

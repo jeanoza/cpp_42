@@ -6,14 +6,20 @@ PmergeMe::PmergeMe(const std::vector<int> &unsortedVector) {
   init(unsortedVector);
 }
 PmergeMe::PmergeMe(const PmergeMe &inst) {
-  //FIXME:copy
-  (void)inst;
+  _sortedList = inst._sortedList;
+  _sortedVector = inst._sortedVector;
+  // for(std::vector<int>::const_iterator it = inst._sortedVector.begin(); it != inst._sortedVector.end(); ++it){
+  //   _sortedVector.push_back(*it);
+  // }
+  // for(std::list<int>::const_iterator it = inst._sortedList.begin(); it != inst._sortedList.end(); ++it){
+  //   _sortedList.push_back(*it);
+  // }
 }
 PmergeMe::~PmergeMe(){}
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
-  //FIXME:copy
-  (void)rhs;
+  _sortedList = rhs._sortedList;
+  _sortedVector = rhs._sortedVector;
 	return (*this);
 }
 
@@ -34,8 +40,6 @@ void PmergeMe::init(const std::vector<int> &unsortedVector) {
     _sortedList.push_back(n);
   }
 }
-
-
 
 void PmergeMe::mergeVector(int left, int middle, int right)
 {
