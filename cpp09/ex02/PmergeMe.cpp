@@ -76,6 +76,10 @@ void PmergeMe::mergeSortVector(int left, int right)
     }
 }
 
+void PmergeMe::sortVector() {
+  mergeSortVector(0, _sortedVector.size() - 1);
+}
+
 void PmergeMe::mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList)
 {
     std::list<int>::iterator itLeft = leftList.begin();

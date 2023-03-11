@@ -51,7 +51,7 @@ int main(int ac, char **av) {
 
 	
 	start = clock(); // returns microseconds
-	p.mergeSortVector(0, unsorted.size() - 1);
+	p.sortVector();
 	end = clock();
 	tVector = static_cast<double>(end - start) / 1000;
 
