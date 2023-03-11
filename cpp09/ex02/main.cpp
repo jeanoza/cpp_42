@@ -25,12 +25,6 @@ void printVector(const std::vector<int> &array) {
 	}
 }
 
-void printList(const std::list<int> &array) {
-	for(std::list<int>::const_iterator it = array.begin(); it != array.end(); ++it) {
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-}
 
 int main(int ac, char **av) {
 	std::vector<int> unsorted;
@@ -39,7 +33,7 @@ int main(int ac, char **av) {
 	int countElement = ac - 1;
 
 	if (ac < 2 || !parse(unsorted, ac, av)){
-		std::cerr << RED << "Error" << std::endl;
+		std::cerr << RED << "Error" << DFT << std::endl;
 		return 1;
 	}
 
@@ -49,7 +43,6 @@ int main(int ac, char **av) {
 	std::cout <<  std::endl;
 
 
-	
 	start = clock(); // returns microseconds
 	p.sortVector();
 	end = clock();
@@ -61,18 +54,18 @@ int main(int ac, char **av) {
 	tList = static_cast<double>(end - start) / 1000;
 
 
-
-	std::cout << CYN << "[After]\n";
-	printVector(p.getSortedVector());
+	std::cout << "[After]\n";
+	p.printVector();
+	p.printList();
 	std::cout << DFT << std::endl;
 
 
 	std::cout << "[Performance]" << std::endl;
 	std::cout << "Time to process a range of "
-		<< countElement << " elements with std::" << GRN << "vector\t\t: "
+		<< countElement << " elements with " << GRN << "<std::vector> :\t"
 		<< tVector << " ms" << DFT << std::endl;
 	std::cout << "Time to process a range of "
-		<< countElement << " elements with std::" << YEL << "list  \t\t: "
+		<< countElement << " elements with " << YEL << "<std::list>   :\t"
 		<< tList << " ms" << DFT << std::endl;
 	// printList(p.getSortedList());
 	return 0;

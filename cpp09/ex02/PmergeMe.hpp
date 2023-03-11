@@ -24,35 +24,30 @@ class PmergeMe {
 		PmergeMe();
 		void init(const std::vector<int> &unsortedVector);
 
+		//with vector
 		void mergeVector(int l, int m, int r);
 		void mergeSortVector(int l, int r);
 
+		//with list
 		void mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList);
 		void mergeSortList(std::list<int>& intList);
 
 	public:
 		PmergeMe(const std::vector<int> &unsortedVector);
 		PmergeMe(const PmergeMe &inst);
-		~PmergeMe();
+		virtual ~PmergeMe();
 		PmergeMe &operator=(const PmergeMe &rhs);
-
-
-
-		class WrongOrderException : public std::exception {
-			virtual const char* what() const throw();
-		};
-		class WrongCharException : public std::exception {
-			virtual const char* what() const throw();
-		};
 
 		/* getters */
 		const std::vector<int> &getSortedVector() const;
 		const std::list<int> &getSortedList() const;
 
-		/* member functions */
-
+		/* public member functions */
 		void sortList();
 		void sortVector();
+
+		void printVector();
+		void printList();
 };
 
 // std::ostream &operator<<(std::ostream &o, PmergeMe const &rhs);

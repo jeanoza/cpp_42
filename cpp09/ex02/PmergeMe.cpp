@@ -135,10 +135,19 @@ void PmergeMe::sortList() {
   mergeSortList(_sortedList);
 }
 
-const char *PmergeMe::WrongOrderException::what() const throw() {
-	return "PmergeMe::WrongOrderException";
+void PmergeMe::printVector() {
+  int size = _sortedVector.size();
+  std::cout << GRN << "<std::vector>" << std::endl;
+	for(int i = 0; i < size; ++i) {
+		std::cout << _sortedVector[i] << " ";
+	}
+	std::cout << DFT << std::endl;
 }
-const char *PmergeMe::WrongCharException::what() const throw() {
-	return "PmergeMe::WrongCharException";
+void PmergeMe::printList() {
+  std::cout << YEL << "<std::list>" << std::endl;
+	for(std::list<int>::const_iterator it = _sortedList.begin(); it != _sortedList.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << DFT << std::endl;
 }
 // std::ostream &operator<<(std::ostream &o, PmergeMe const &rhs) { }
