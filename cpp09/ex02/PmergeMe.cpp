@@ -20,6 +20,9 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
 const std::vector<int> &PmergeMe::getSortedVector() const {
   return _sortedVector;
 }
+const std::list<int> &PmergeMe::getSortedList() const {
+  return _sortedList;
+}
 
 
 /* member functions */
@@ -28,8 +31,11 @@ void PmergeMe::init(const std::vector<int> &unsortedVector) {
   for (int i = 0; i < size; ++i) {
     int n = unsortedVector[i];
     _sortedVector.push_back(n);
+    _sortedList.push_back(n);
   }
 }
+
+
 
 void PmergeMe::mergeVector(int left, int middle, int right)
 {
@@ -64,10 +70,65 @@ void PmergeMe::mergeSortVector(int left, int right)
 {
     if (left < right) {
         int middle = left + (right - left) / 2;
-        mergeSort(left, middle);
-        mergeSort(middle + 1, right);
-        merge(left, middle, right);
+        mergeSortVector(left, middle);
+        mergeSortVector(middle + 1, right);
+        mergeVector(left, middle, right);
     }
+}
+
+void PmergeMe::mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList)
+{
+    std::list<int>::iterator itLeft = leftList.begin();
+    std::list<int>::iterator itRight = rightList.begin();
+
+    while (itLeft != leftList.end() && itRight != rightList.end()) {
+        if (*itLeft <= *itRight) {
+            mergedList.push_back(*itLeft);
+            itLeft++;
+        }
+        else {
+            mergedList.push_back(*itRight);
+            itRight++;
+        }
+    }
+
+    while (itLeft != leftList.end()) {
+        mergedList.push_back(*itLeft);
+        itLeft++;
+    }
+
+    while (itRight != rightList.end()) {
+        mergedList.push_back(*itRight);
+        itRight++;
+    }
+}
+
+void PmergeMe::mergeSortList(std::list<int>& intList)
+{
+    if (intList.size() > 1) {
+        std::list<int> leftList;
+        std::list<int> rightList;
+        std::list<int>::iterator it = intList.begin();
+        int middle = intList.size() / 2;
+
+        for (int i = 0; i < middle; i++) {
+            leftList.push_back(*it);
+            it++;
+        }
+
+        for (int i = middle; i < static_cast<int>(intList.size()); i++) {
+            rightList.push_back(*it);
+            it++;
+        }
+        intList.clear();
+        mergeSortList(leftList);
+        mergeSortList(rightList);
+        mergeList(leftList, rightList, intList);
+    }
+}
+
+void PmergeMe::sortList() {
+  mergeSortList(_sortedList);
 }
 
 const char *PmergeMe::WrongOrderException::what() const throw() {

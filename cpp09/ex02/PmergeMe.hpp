@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 # ifndef COLOR
 #  define RED "\033[0;31m"
@@ -18,6 +19,7 @@
 class PmergeMe {
 	private:
 		std::vector<int> _sortedVector;
+		std::list<int> _sortedList;
 
 		PmergeMe();
 
@@ -26,6 +28,8 @@ class PmergeMe {
 		PmergeMe(const PmergeMe &inst);
 		~PmergeMe();
 		PmergeMe &operator=(const PmergeMe &rhs);
+
+
 
 		class WrongOrderException : public std::exception {
 			virtual const char* what() const throw();
@@ -36,11 +40,17 @@ class PmergeMe {
 
 		/* getters */
 		const std::vector<int> &getSortedVector() const;
+		const std::list<int> &getSortedList() const;
 
 		/* member functions */
 		void init(const std::vector<int> &unsortedVector);
+
 		void mergeVector(int l, int m, int r);
 		void mergeSortVector(int l, int r);
+
+		void mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList);
+		void mergeSortList(std::list<int>& intList);
+		void sortList();
 };
 
 // std::ostream &operator<<(std::ostream &o, PmergeMe const &rhs);
