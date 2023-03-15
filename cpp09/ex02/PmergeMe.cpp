@@ -1,5 +1,4 @@
 #include "PmergeMe.hpp"
-#include <iostream>
 
 PmergeMe::PmergeMe() {}
 PmergeMe::PmergeMe(const std::vector<int> &unsortedVector) {

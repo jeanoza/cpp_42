@@ -59,6 +59,15 @@ double findRate(std::string dateStr, std::map<std::string, double> &dataMap) {
 	return (dataMap[dateStr]);
 }
 
+bool validateValue(const std::string &value){
+	for(int i = 0; i < static_cast<int>(value.length()); ++i) {
+		if (!(isdigit(value[i]) || value[i] == '.' || value[i] == '-'))
+			return false;
+
+	}
+	return true;
+}
+
 void printResult(std::ifstream &ifs, std::map<std::string, double> &dataMap) {
 	std::string line;
 
@@ -69,14 +78,15 @@ void printResult(std::ifstream &ifs, std::map<std::string, double> &dataMap) {
 
 		getline(ss, date, '|');
 		date = trim(date); // trim to delete space in date
-		getline(ss, value, '|');
+		getline(ss, value);
 		value = trim(value);
+
 		if (!date.length() || !value.length()) {
 			printError("Error: bad input => " + line);
 			continue;
 		}
 		if (date != "date"){
-			 if(!verifyDateFormat(date)) {
+			 if(!verifyDateFormat(date) || !validateValue(value)) {
 				printError("Error: bad input => " + line);
 				continue;
 			}
