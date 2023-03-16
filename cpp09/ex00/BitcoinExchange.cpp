@@ -92,7 +92,7 @@ void printResult(std::ifstream &ifs, std::map<std::string, double> &dataMap) {
 				continue;
 			}
 			double _value = std::atof(value.c_str());
-			if (_value > 2147483647) {
+			if (_value > 1000) {
 				printError("Error: too large a number.");
 				continue;
 			}
