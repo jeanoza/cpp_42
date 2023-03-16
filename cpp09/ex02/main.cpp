@@ -45,12 +45,12 @@ int main(int ac, char **av) {
 
 
 	start = clock(); // returns microseconds
-	p.sortVector(10);
+	p.sortVector(ac / 2);
 	end = clock();
 	tVector = static_cast<double>(end - start) / 1000;
 
 	start = clock(); // returns microseconds
-	p.sortList(10);
+	p.sortList(ac / 2);
 	end = clock();
 	tList = static_cast<double>(end - start) / 1000;
 
