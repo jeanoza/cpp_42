@@ -40,102 +40,122 @@ void PmergeMe::init(const std::vector<int> &unsortedVector) {
   }
 }
 
+
+void PmergeMe::insertSortVector(int left, int right) {
+    for (int i = left + 1; i <= right; i++) {
+        int key = _sortedVector[i];
+        int j = i - 1;
+        while (j >= left && _sortedVector[j] > key) {
+            _sortedVector[j+1] = _sortedVector[j];
+            j--;
+        }
+        _sortedVector[j+1] = key;
+    }
+}
+
 void PmergeMe::mergeVector(int left, int middle, int right)
 {
-    int i, j, k;
-    int leftSize = middle - left + 1;
-    int rightSize = right - middle;
+    int i = left, j = middle + 1, k = 0;
+    std::vector<int> temp(right - left + 1);
 
-    std::vector<int> leftArray(leftSize);
-    std::vector<int> rightArray(rightSize);
-
-
-    for (i = 0; i < leftSize; i++)
-        leftArray[i] = _sortedVector[left + i];
-    for (j = 0; j < rightSize; j++)
-        rightArray[j] = _sortedVector[middle + 1 + j];
-
-    i = 0;
-    j = 0;
-    k = left;
-    while (i < leftSize && j < rightSize) {
-        if (leftArray[i] <= rightArray[j]) _sortedVector[k] = leftArray[i++];
-        else _sortedVector[k] = rightArray[j++];
+    while (i <= middle && j <= right) {
+        if (_sortedVector[i] <= _sortedVector[j]) 
+            temp[k] = _sortedVector[i++];
+				else
+            temp[k] = _sortedVector[j++];
         k++;
     }
 
-    while (i < leftSize) _sortedVector[k++] = leftArray[i++];
+    while (i <= middle)
+			temp[k++] = _sortedVector[i++];
+    while (j <= right)
+			temp[k++] = _sortedVector[j++];
 
-    while (j < rightSize) _sortedVector[k++] = rightArray[j++];
+    for (i = left, k = 0; i <= right; i++, k++)
+			_sortedVector[i] = temp[k];
 }
 
-void PmergeMe::mergeSortVector(int left, int right)
+void PmergeMe::mergeInsertSortVector(int left, int right, int k)
 {
     if (left < right) {
-        int middle = left + (right - left) / 2;
-        mergeSortVector(left, middle);
-        mergeSortVector(middle + 1, right);
-        mergeVector(left, middle, right);
+				if (right - left <= k){
+					insertSortVector(left, right);
+				}
+				else {
+					int middle = left + (right - left) / 2;
+					mergeInsertSortVector(left, middle, k);
+					mergeInsertSortVector(middle + 1, right, k);
+					mergeVector(left, middle, right);
+				}
     }
 }
 
-void PmergeMe::sortVector() {
-  mergeSortVector(0, _sortedVector.size() - 1);
+void PmergeMe::sortVector(int k) {
+  mergeInsertSortVector(0, _sortedVector.size() - 1, k);
 }
 
-void PmergeMe::mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList)
+void PmergeMe::insertSortList(std::list<int>& currentList) {
+	for (std::list<int>::iterator it = ++currentList.begin(); it != currentList.end(); ++it) {
+		int value = *it;
+		std::list<int>::iterator insertion_pos = currentList.begin();
+		while (insertion_pos != it && *insertion_pos <= value) {
+				++insertion_pos;
+		}
+		currentList.erase(it);
+		currentList.insert(insertion_pos, value);
+	}
+}
+
+void PmergeMe::mergeSortList(std::list<int>& currentList, int k)
 {
-    std::list<int>::iterator itLeft = leftList.begin();
-    std::list<int>::iterator itRight = rightList.begin();
+	if (static_cast<int>(currentList.size()) <= 1)
+		return;
 
-    while (itLeft != leftList.end() && itRight != rightList.end()) {
-        if (*itLeft <= *itRight) {
-            mergedList.push_back(*itLeft);
-            itLeft++;
-        }
-        else {
-            mergedList.push_back(*itRight);
-            itRight++;
-        }
-    }
+	if (static_cast<int>(_sortedList.size()) <= k) {
+			insertSortList(_sortedList);
+	} else {
+		std::list<int> left, right;
 
-    while (itLeft != leftList.end()) {
-        mergedList.push_back(*itLeft);
-        itLeft++;
-    }
+		int mid = static_cast<int>(currentList.size()) / 2;
+		std::list<int>::iterator it = currentList.begin();
+		for (int i = 0; i < mid; ++i) {
+				left.push_back(*it);
+				++it;
+		}
+		for (int i = mid; i < static_cast<int>(currentList.size()); ++i) {
+				right.push_back(*it);
+				++it;
+		}
 
-    while (itRight != rightList.end()) {
-        mergedList.push_back(*itRight);
-        itRight++;
-    }
+		mergeSortList(left, left.size() / 2);
+		mergeSortList(right, right.size() / 2);
+
+		currentList.clear();
+		std::list<int>::iterator l_it = left.begin();
+		std::list<int>::iterator r_it = right.begin();
+		while (l_it != left.end() && r_it != right.end()) {
+				if (*l_it <= *r_it) {
+						currentList.push_back(*l_it);
+						++l_it;
+				} else {
+						currentList.push_back(*r_it);
+						++r_it;
+				}
+		}
+		while (l_it != left.end()) {
+				currentList.push_back(*l_it);
+				++l_it;
+		}
+		while (r_it != right.end()) {
+				currentList.push_back(*r_it);
+				++r_it;
+		}
+	}
+
 }
 
-void PmergeMe::mergeSortList(std::list<int>& intList)
-{
-    if (intList.size() > 1) {
-        std::list<int> leftList;
-        std::list<int> rightList;
-        std::list<int>::iterator it = intList.begin();
-        int middle = intList.size() / 2;
-
-        for (int i = 0; i < middle; i++) {
-            leftList.push_back(*it);
-            it++;
-        }
-
-        for (int i = middle; i < static_cast<int>(intList.size()); i++) {
-            rightList.push_back(*it);
-            it++;
-        }
-        intList.clear();
-        mergeSortList(leftList);
-        mergeSortList(rightList);
-        mergeList(leftList, rightList, intList);
-    }
-}
-
-void PmergeMe::sortList() {
-  mergeSortList(_sortedList);
+void PmergeMe::sortList(int k) {
+	mergeSortList(_sortedList, k);
 }
 
 void PmergeMe::printVector() {

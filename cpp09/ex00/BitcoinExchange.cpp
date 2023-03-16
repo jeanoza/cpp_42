@@ -27,9 +27,12 @@ std::string trim(const std::string& str) {
     return str.substr(first, last - first + 1);
 }
 
-double findRate(std::string dateStr, std::map<std::string, double> &dataMap) {
 
-	//std::cout << "Date origin : " << dateStr << std::endl;
+/**
+ * function to find a near day from dateStr
+ * Then return its rate
+ */
+double findRate(std::string dateStr, std::map<std::string, double> &dataMap) {
 	while (dataMap.find(dateStr) == dataMap.end()) {
 		int year, month, day;
 		std::sscanf(dateStr.c_str(), "%d-%d-%d", &year, &month, &day);
@@ -54,8 +57,6 @@ double findRate(std::string dateStr, std::map<std::string, double> &dataMap) {
 		std::strftime(buffer, 80, "%Y-%m-%d", &date);
 		dateStr = std::string(buffer);
 	}
-	//std::cout << "Date decremente : " << dateStr << std::endl;
-
 	return (dataMap[dateStr]);
 }
 
@@ -79,7 +80,7 @@ void printResult(std::ifstream &ifs, std::map<std::string, double> &dataMap) {
 		getline(ss, date, '|');
 		date = trim(date); // trim to delete space in date
 		getline(ss, value);
-		value = trim(value);
+		value = trim(value); // trim to delete space in date
 
 		if (!date.length() || !value.length()) {
 			printError("Error: bad input => " + line);

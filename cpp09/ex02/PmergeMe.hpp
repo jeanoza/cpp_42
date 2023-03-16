@@ -26,12 +26,14 @@ class PmergeMe {
 		void init(const std::vector<int> &unsortedVector);
 
 		//with vector
-		void mergeVector(int l, int m, int r);
-		void mergeSortVector(int l, int r);
+		void mergeVector(int left, int middle, int right);
+		void mergeInsertSortVector(int left, int right, int k);
+		void insertSortVector(int left, int right);
+
 
 		//with list
-		void mergeList(std::list<int>& leftList, std::list<int>& rightList, std::list<int>& mergedList);
-		void mergeSortList(std::list<int>& intList);
+		void mergeSortList(std::list<int>& currentList, int k);
+		void insertSortList(std::list<int>& currentList);
 
 	public:
 		PmergeMe(const std::vector<int> &unsortedVector);
@@ -44,8 +46,8 @@ class PmergeMe {
 		const std::list<int> &getSortedList() const;
 
 		/* public member functions */
-		void sortList();
-		void sortVector();
+		void sortList(int k);
+		void sortVector(int k);
 
 		void printVector();
 		void printList();

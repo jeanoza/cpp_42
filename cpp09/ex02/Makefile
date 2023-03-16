@@ -17,7 +17,6 @@ $(NAME): $(OBJ)
 
 %.o:%.cpp $(INC)
 	$(CC) $(CFLAGS) -c $< -std=c++98
-
 clean:
 	rm -f $(OBJ)
 

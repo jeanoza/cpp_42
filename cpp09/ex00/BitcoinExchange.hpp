@@ -25,5 +25,6 @@ std::string trim(const std::string& str);
 double findRate(std::string dateStr, std::map<std::string, double> &dataMap);
 
 void parseData(std::ifstream &ifs, std::map<std::string, double> &dataMap);
-
 void printResult(std::ifstream &ifs, std::map<std::string, double> &dataMap);
+bool validateValue(const std::string &value);
+
