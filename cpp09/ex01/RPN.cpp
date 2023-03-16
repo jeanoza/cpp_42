@@ -32,7 +32,6 @@ int RPN::calculate() {
         if (isNumeric(c)) {
             stack.push(c - '0'); // convert char to int
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-						if (stack.size() != 2) throw RPN::WrongOrderException();
             int num2 = stack.top();
 						stack.pop();
             int num1 = stack.top();
@@ -46,20 +45,6 @@ int RPN::calculate() {
                 case '/': res = num1 / num2; break;
             }
             stack.push(res);
-
-						//int res = stack.top();
-						//while (res && stack.size() > 1){
-						//	std::cout << "HERE " << res << std::endl;
-						//	stack.pop();
-						//	int num1 = stack.top();
-						//	switch(c) {
-						//		case '+': res = res + num1; break;
-						//		case '-': res = res - num1; break;
-						//		case '*': res = res * num1; break;
-						//		case '/': res = res / num1; break;
-						//	}
-						//}
-						//stack.push(res);
         } else if (c != ' ') throw RPN::WrongCharException();
     }
     
