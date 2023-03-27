@@ -32,6 +32,7 @@ int RPN::calculate() {
         if (isNumeric(c)) {
             stack.push(c - '0'); // convert char to int
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+						if (stack.size() < 2) throw RPN::WrongOrderException(); // add check for stack size
             int num2 = stack.top();
 						stack.pop();
             int num1 = stack.top();
@@ -48,6 +49,7 @@ int RPN::calculate() {
         } else if (c != ' ') throw RPN::WrongCharException();
     }
     
+		if (stack.size() != 1) throw RPN::WrongOrderException(); // add check for final stack size
     return stack.top();
 }
 
