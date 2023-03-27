@@ -34,6 +34,9 @@ int RPN::calculate() {
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
 						if (stack.size() < 2) throw RPN::WrongOrderException(); // add check for stack size
             int num2 = stack.top();
+
+						if (num2 == 0 && c == '/')
+							throw RPN::WrongOrderException(); // add check for stack size
 						stack.pop();
             int num1 = stack.top();
 						stack.pop();
@@ -58,5 +61,8 @@ const char *RPN::WrongOrderException::what() const throw() {
 }
 const char *RPN::WrongCharException::what() const throw() {
 	return "RPN::WrongCharException";
+}
+const char *RPN::WrongZeroDivideException::what() const throw() {
+	return "RPN::WrongZeroDivideException";
 }
 // std::ostream &operator<<(std::ostream &o, RPN const &rhs) { }

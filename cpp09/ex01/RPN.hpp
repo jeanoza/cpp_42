@@ -36,6 +36,9 @@ class RPN {
 		class WrongCharException : public std::exception {
 			virtual const char* what() const throw();
 		};
+		class WrongZeroDivideException : public std::exception {
+			virtual const char* what() const throw();
+		};
 
 		/* member functions */
 		int calculate();
